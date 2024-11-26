@@ -112,6 +112,19 @@ body {
 }
 .giohang{
     background-color: #FFFFFF;
+    position: relative;
+    padding: 20px;
+}
+.giohang button{
+    float: right; /* Đưa nút sang phải */
+    background-color: #169C2C; /* Màu nền nút */
+    color: white; /* Màu chữ */
+    border: none; /* Xóa đường viền */
+    padding: 10px 15px; /* Kích thước nút */
+    font-size: 16px; /* Cỡ chữ */
+    cursor: pointer; /* Thêm con trỏ chuột */
+    border-radius: 5px; /* Bo góc nút */
+    margin-bottom: 10px;
 }
 .giohang .thongtinnhieusanpham .sanpham1 {
     display: flex;

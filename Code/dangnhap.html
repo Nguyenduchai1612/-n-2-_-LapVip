@@ -39,60 +39,41 @@
     </div>
   </div>
 
-    <script>
-      $(document).ready(function() {
-          $('#loginBtn').on('click', function() {
-              const inputTK = $('#tk').val().trim();
-              const inputMK = $('#mk').val().trim();
-  
-              // Kiểm tra tài khoản và mật khẩu
-              if (!inputTK || !inputMK) {
-                  alert('Vui lòng nhập cả tài khoản và mật khẩu.');
-                  return;
-              }
-  
-              // Lấy danh sách người dùng từ localStorage
-              let users = JSON.parse(localStorage.getItem('users')) || [];
-  
-              // Kiểm tra tài khoản và mật khẩu
-              const user = users.find(user => user.taiKhoan === inputTK);
-  
-              if (user && user.matKhau === inputMK) {
-                  alert('Đăng nhập thành công!');
-                  window.location.href = 'http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/TrangChu.html'; // Chuyển hướng đến trang chủ
-              } else {
-                  alert('Tài khoản hoặc mật khẩu không đúng. Vui lòng thử lại.');
-              }
-          });
-      });
-  </script>
-  <!-- </div>
-  <div class="login-page">
-    <div class="form">
-      <h1 style="margin-bottom: 50px; margin-top: -20px;">Đăng Nhập</h1>
-      <input id="tk" type="text" placeholder="Tài khoản" />
-      <input id="mk" type="password" placeholder="Mật khẩu" />
-      <button id="loginBtn">Đăng Nhập</button>
-    </div>
-  </div>
-
   <script>
-    const loginBtn = document.getElementById('loginBtn');
-    // Thêm sự kiện click vào nút
-    loginBtn.addEventListener('click', function () {
-      console.log(localStorage.getItem("TaiKhoan"));
-      // Chuyển hướng đến trang chủ
-      if (document.getElementById("tk").value === localStorage.getItem("TaiKhoan") & document.getElementById("mk").value === localStorage.getItem("MatKhau")) {
-        window.location.href = 'http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/TrangChu.html';
-        // Hiển thị thông báo
-        alert('Đăng nhập thành công!');
-      }
+    $(document).ready(function() {
+      $('#loginBtn').on('click', function() {
+        const inputTK = $('#tk').val().trim();
+        const inputMK = $('#mk').val().trim();
+  
+        // Kiểm tra tài khoản và mật khẩu
+        if (!inputTK || !inputMK) {
+          alert('Vui lòng nhập cả tài khoản và mật khẩu.');
+          return;
+        }
+  
+        // Kiểm tra tài khoản và mật khẩu
+        if (inputTK === "admin" && inputMK === "admin") {
+          // Nếu tài khoản và mật khẩu đúng là admin
+          alert('Đăng nhập thành công với tài khoản admin!');
+          window.location.href = 'http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/Quantri.html'; // Trang quản trị admin
+        } else {
+          // Nếu tài khoản và mật khẩu sai hoặc không phải admin
+          let users = JSON.parse(localStorage.getItem('users')) || [];
+  
+          // Kiểm tra tài khoản và mật khẩu người dùng khác
+          const user = users.find(user => user.taiKhoan === inputTK && user.matKhau === inputMK);
+  
+          if (user) {
+            alert('Đăng nhập thành công!');
+            window.location.href = 'http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/TrangChu.html'; // Trang chủ người dùng
+          } else {
+            alert('Tài khoản hoặc mật khẩu không đúng. Vui lòng thử lại.');
+          }
+        }
+      });
     });
-    function tk() {
-      var a = localStorage.getItem("TaiKhoan");
-      console.log(a);
-    }
-  </script> -->
+  </script>
+
 </body>
 
 </html>
