@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<link rel="stylesheet" href="dangky.css">
+<style>
+   
+</style>
+<body>
+    <div class="header">
+		<div class="header_inner">
+			<!-- <div class="logo"> -->
+			<a href=""><img src="Ảnh/LapVip.png" alt="LAPVIP"></a>
+			
+			<!-- </div> -->
+			<div class="text" >
+				<input style="flex:1" type="text" class="form-control" id="search_home"
+					placeholder="Nhập tên máy tính, phụ kiện...cần tìm...">
+					<button>Tìm Kiếm</button>
+			</div>
+			<div style="display: flex;justify-content: space-between;width: 250px;">
+				<a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/dangnhap.html">Đăng nhập</a>
+				<a href="">Tin tức</a>
+        <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/TrangChu.html">Trang chủ</a>
+			</div>
+
+		</div>
+	</div>
+
+    <div class="login-page">
+        <div class="form">
+            <h1 style="margin-bottom: 50px; margin-top: -20px;" >ĐĂNG KÝ TÀI KHOẢN</h1>
+            <div class="form2" style="width: 350px;">
+                <input placeholder="Tài khoản" id="taikhoan" type="text"><br>
+                <input placeholder="Mật khẩu" id="matkhau" type="password"><br>
+                <input placeholder="Nhập lại mật khẩu" id="maukhau" type="password"><br>
+                <div class="check-pass">
+                    <input class="check" style="margin-left: -180px;" type="checkbox" id="showPasswordCheckbox">
+                    <label for="showPasswordCheckbox">Hiển thị mật khẩu</label><br>
+                </div>
+                <button id="registerBtn">Đăng Ký</button>
+            </div>
+        </div>
+        
+        <script>
+            $(document).ready(function() {
+                $('#registerBtn').on('click', function() {
+                    const taiKhoan = $('#taikhoan').val().trim();
+                    const matKhau = $('#matkhau').val().trim();
+                    const xacNhanMatKhau = $('#maukhau').val().trim();
+        
+                    if (!taiKhoan || !matKhau || !xacNhanMatKhau) {
+                        alert("Vui lòng điền đầy đủ thông tin!");
+                        return;
+                    }
+        
+                    if (matKhau !== xacNhanMatKhau) {
+                        alert("Mật khẩu xác nhận không khớp!");
+                        return;
+                    }
+        
+                    // Lấy danh sách tài khoản đã đăng ký từ localStorage (nếu có)
+                    let users = JSON.parse(localStorage.getItem('users')) || [];
+        
+                    // Kiểm tra xem tài khoản đã tồn tại chưa
+                    if (users.find(user => user.taiKhoan === taiKhoan)) {
+                        alert("Tài khoản đã tồn tại!");
+                        return;
+                    }
+        
+                    // Thêm người dùng mới vào danh sách
+                    const userInfo = { taiKhoan: taiKhoan, matKhau: matKhau };
+                    users.push(userInfo);
+        
+                    // Lưu danh sách người dùng vào localStorage
+                    localStorage.setItem('users', JSON.stringify(users));
+        
+                    alert('Đăng ký thành công!');
+                    window.location.href = "http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/dangnhap.html"; // Chuyển hướng sang trang đăng nhập
+                });
+            });
+        </script>
+</body>
+</html>

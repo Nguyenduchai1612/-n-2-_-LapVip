@@ -1,0 +1,169 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F3F3F3;
+    margin: 0 auto;
+    max-width: 1500px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header_inner a{color: #ffffff;
+    text-decoration: none}
+.header_inner {
+    margin: 0 auto;
+    max-width: 100%;
+    height: 80px;
+    align-items: center;
+    justify-content: space-evenly;
+    display: flex;
+    background-color: #169C2C;
+}
+    
+.text {
+    
+    margin-left: 0;
+    width: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.text button {
+    border-left: none;
+    width: 15%;
+    height: 1cm;
+    margin: 0;
+    background-color: #333333;
+    color: #A9A9A9;
+}
+
+.text input {
+    width: 50%;
+    height: 25px;
+    padding: 0.3rem;
+    margin: 0.3rem;
+    background-color: black;
+}
+.text input::placeholder{
+    color:#A9A9A9;
+    font-size: larger;
+}
+
+.intro {
+    align-items: center;
+    width: 1200px;
+    display: flex;
+    background-color: #ffffff;
+    justify-content: center;
+    margin: 11px;
+}
+
+.intro a {
+    margin-right: 15cm;
+}
+
+.intro img {
+    margin: 0;
+    margin-left: 20rem;
+}
+
+
+.giohang {
+    padding: 50px;
+    width: 1200px;
+    margin: auto;
+    background-color: antiquewhite; 
+}
+.thongtinsanpham{
+    width: 100%;
+    
+}
+.class {
+    width: 40px;
+    height: 20px;
+}
+.sanpham1{
+    width:100% ;
+    height: 120px;
+    display: flex;
+    padding: 5px;
+}
+.anh{
+    width: 160px;
+    height: 120px;
+    margin-right: 15px;
+    
+    background-image: url("Ảnh/maytinh1mini.jpg");
+    background-position: center;
+}
+.noidungsp{
+    width: 700px;
+    height: 90px;
+    padding: 15px 20px;
+    margin-right: 40px;
+
+}
+.gia{
+    height: 120px;
+    width: 240px;
+
+}
+.giohang{
+    background-color: #FFFFFF;
+}
+.giohang .thongtinnhieusanpham .sanpham1 {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.giohang .thongtinnhieusanpham .sanpham1 .gia {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.giohang .thongtinnhieusanpham .sanpham1 .gia .price-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.giohang .thongtinnhieusanpham .sanpham1 .gia .giaCu {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.giohang .thongtinnhieusanpham .sanpham1 .gia .giaMoi {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.giohang .thongtinnhieusanpham .sanpham1 .gia .thanhtien {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.giohang .thongtinnhieusanpham .sanpham1 .gia .soluong {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.giohang .thongtinnhieusanpham .sanpham1 .gia .soluong button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.giohang .thongtinnhieusanpham .sanpham1 .gia .quantity-input {
+    width: 50px;
+    text-align: center;
+    font-size: 16px;
+    margin: 0 10px;
+}
+

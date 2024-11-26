@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ĐỒ ÁN _ LapVip/Code/giohang</title>
+    <link rel="stylesheet" href="giohang.css">
+	<script src="https://kit.fontawesome.com/faa982bf4c.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="header">
+		<div class="header_inner">
+			<!-- <div class="logo"> -->
+			<a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/TrangChu.html"><img src="Ảnh/LapVip.png" alt="LAPVIP"></a>
+			
+			<!-- </div> -->
+			<div class="text" >
+				<input style="flex:1" type="text" class="form-control" id="search_home"
+					placeholder="Nhập tên máy tính, phụ kiện...cần tìm...">
+					<button>Tìm Kiếm</button>
+			</div>
+			<div style="display: flex;justify-content: space-between;width: 250px;">
+				<a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/dangnhap.html">Đăng nhập</a>
+                <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/TrangChu.html">Trang Chủ</a>
+				<a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/giohang.html">Giỏ hàng</a>
+			</div>
+
+		</div>
+
+	</div> 
+    <div style="width: 100%;" class="ab">
+        <div class="bb" style="width: 1200px; margin: 10px auto;padding-right: 35px;"><a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/TrangChu.html">Trang chủ</a>/Giỏ hàng 
+        </div>
+
+        <div class="giohang">
+			Giỏ hàng của bạn có ( Sản phẩm) 
+			<button>Xóa giỏ hàng</button>
+            <div><span style="font-size: 30px;"></span></div>
+            <hr style="border-style: 0.5px solid;width: 100%;margin:20px 0px">
+		
+            <div class="thongtinnhieusanpham">
+            </div>
+        </div>
+
+    </div>
+	<script>
+		// Lấy sản phẩm từ localStorage
+		var storedProducts = localStorage.getItem('products');
+		var products = storedProducts ? JSON.parse(storedProducts) : [];
+	
+		// Hàm tải sản phẩm vào giỏ hàng
+		function upload() {
+			var container = document.querySelector('.giohang .thongtinnhieusanpham');
+			container.innerHTML = ''; // Xóa nội dung hiện tại để tải lại
+	
+			let totalAmount = 0; // Tổng tiền cho tất cả sản phẩm
+			let subtotal = 0; // Tổng tiền chưa có phí bổ sung
+	
+			// Kiểm tra xem giỏ hàng có rỗng không
+			if (products.length === 0) {
+				container.innerHTML = `
+					<div class="empty-cart-message">
+						<h2>Không có sản phẩm nào trong giỏ hàng của bạn</h2>
+						<h4>Hãy quay lại và chọn cho mình sản phẩm phù hợp nhé!</h4>
+						<button><a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/TrangChu.html">Quay lại mua sắm</a></button>
+					</div>
+				`;
+	
+				// Xóa tạm tính và tổng tiền nếu có
+				var totalDiv = document.querySelector('.giohang .tongtien');
+				if (totalDiv) {
+					totalDiv.remove();
+				}
+				return;
+			}
+	
+			// Duyệt qua tất cả sản phẩm trong giỏ hàng
+			for (var i = 0; i < products.length; i++) {
+				var product = products[i];
+	
+				// Tạo các phần tử HTML cho sản phẩm
+				var div3 = document.createElement('div');
+				div3.classList.add('sanpham1');
+	
+				var div4 = document.createElement('div');
+				div4.classList.add('anh');
+				var img = document.createElement('img');
+				img.id = 'anh' + (i + 1);
+				img.src = product.pic;
+				img.style.objectFit = 'cover';
+				img.style.width = '100%';
+				img.style.height = '100%';
+				div4.appendChild(img);
+	
+				var div5 = document.createElement('div');
+				div5.classList.add('noidungsp');
+				var span2 = document.createElement('span');
+				span2.id = 'noidungsp' + (i + 1);
+				span2.textContent = product.name;
+				div5.appendChild(span2);
+	
+				var div6 = document.createElement('div');
+				div6.classList.add('gia');
+	
+				// Container giá cho bố cục gọn gàng
+				var priceContainer = document.createElement('div');
+				priceContainer.classList.add('price-container');
+	
+				// Giá bán hiện tại (không thay đổi định dạng)
+				var newPriceDiv = document.createElement('div');
+				newPriceDiv.classList.add('giaMoi');
+				newPriceDiv.textContent = 'Giá bán: ' + formatCurrencyWithoutSuffix(product.price);
+				priceContainer.appendChild(newPriceDiv);
+	
+				// Tính toán và hiển thị tổng tiền cho sản phẩm này
+				var quantity = product.quantity || 1; // Gán số lượng mặc định nếu không tồn tại
+				var productTotal = quantity * parseFloat(product.price.replace(/[^0-9.-]+/g, ''));
+				var totalDiv = document.createElement('div');
+				totalDiv.classList.add('thanhtien');
+				totalDiv.textContent = 'Thành tiền: ' + formatCurrency(productTotal);
+				priceContainer.appendChild(totalDiv);
+	
+				// Phần chỉnh sửa số lượng với ô nhập
+				var quantityDiv = document.createElement('div');
+				quantityDiv.classList.add('soluong');
+				quantityDiv.textContent = 'Số lượng: ';
+	
+				var quantityInput = document.createElement('input');
+				quantityInput.classList.add('quantity-input');
+				quantityInput.type = 'number';
+				quantityInput.value = product.quantity || 1;
+				quantityInput.min = 1;
+				quantityInput.onchange = (function(index, totalDiv) {
+					return function() {
+						var newQuantity = parseInt(quantityInput.value);
+						if (newQuantity >= 1) {
+							products[index].quantity = newQuantity;
+	
+							// Cập nhật "Thành tiền" khi số lượng thay đổi
+							var updatedTotal = newQuantity * parseFloat(products[index].price.replace(/[^0-9.-]+/g, ''));
+							totalDiv.textContent = 'Thành tiền: ' + formatCurrency(updatedTotal);
+	
+							updateProductAndUI(index);
+						} else {
+							quantityInput.value = products[index].quantity;
+						}
+					};
+				})(i, totalDiv);
+	
+				quantityDiv.appendChild(quantityInput);
+				priceContainer.appendChild(quantityDiv);
+	
+				div6.appendChild(priceContainer);
+	
+				// Nút xóa sản phẩm
+				var button = document.createElement('button');
+				button.classList.add('button');
+				button.textContent = 'Xóa';
+				button.onclick = (function(index) {
+					return function() {
+						// Hỏi người dùng có chắc chắn muốn xóa sản phẩm
+						if (confirm("Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?")) {
+							xoa(index);
+						}
+					};
+				})(i);
+	
+				// Gắn tất cả các phần tử vào container
+				div3.appendChild(div4);
+				div5.appendChild(document.createElement('br'));
+				div5.appendChild(button);
+				div3.appendChild(div5);
+				div3.appendChild(div6);
+				container.appendChild(div3);
+	
+				// Cập nhật tổng tiền
+				totalAmount += productTotal;
+				subtotal += productTotal;
+			}
+	
+			// Hiển thị tổng tiền và tạm tính
+			var totalDiv = document.querySelector('.giohang .tongtien');
+			if (!totalDiv) {
+				totalDiv = document.createElement('div');
+				totalDiv.classList.add('tongtien');
+				document.querySelector('.giohang').appendChild(totalDiv);
+			}
+			totalDiv.innerHTML = `
+				<div>Tạm tính: ${formatCurrency(subtotal)}</div>
+				<div><strong>Tổng tiền: ${formatCurrency(totalAmount)}</strong></div>
+			`;
+		}
+	
+		// Hàm định dạng tiền tệ với dấu '.' và thêm 6 chữ số '0' sau dấu phẩy
+		function formatCurrency(amount) {
+			return amount.toLocaleString('vi-VN').replace(/,/g, '.') + '.000.000 đ';
+		}
+	
+		// Hàm định dạng tiền tệ không thêm '.000000 đ'
+		function formatCurrencyWithoutSuffix(amount) {
+			return amount.toLocaleString('vi-VN').replace(/,/g, '.');
+		}
+	
+		// Cập nhật sản phẩm và giao diện người dùng
+		function updateProductAndUI(index) {
+			localStorage.setItem('products', JSON.stringify(products));
+			upload(); 
+		}
+	
+		// Xóa sản phẩm khỏi giỏ hàng
+		function xoa(i) {
+			products.splice(i, 1);
+			localStorage.setItem('products', JSON.stringify(products));
+			upload(); 
+		}
+	
+		// Tải sản phẩm khi trang được tải
+		upload();
+	</script>
+	
+	
+	
+</body>
+
+</html>
