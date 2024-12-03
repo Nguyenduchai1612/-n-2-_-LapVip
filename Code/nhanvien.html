@@ -79,95 +79,100 @@
     
         <script src="NhanVien.js"></script>
         <script>
-            let employees = [
-    { id: 1, name: "Nguyễn Văn A", position: "Quản Lý", email: "a@gmail.com", phone: "0987654321" },
-    { id: 2, name: "Trần Thị B", position: "Nhân Viên Bán Hàng", email: "b@gmail.com", phone: "0912345678" },
-];
+        // Lấy danh sách nhân viên từ localStorage (hoặc khởi tạo nếu chưa có)
+        let employees = JSON.parse(localStorage.getItem("employees")) || [];
 
-// Hiển thị danh sách nhân viên
-function renderEmployeeTable() {
-    const table = document.getElementById("employee-table");
-    table.innerHTML = employees.map((employee, index) => `
-        <tr>
-            <td>${employee.id}</td>
-            <td>${employee.name}</td>
-            <td>${employee.position}</td>
-            <td>${employee.email}</td>
-            <td>${employee.phone}</td>
-            <td>
-                <button class="btn-edit" onclick="editEmployee(${index})">Sửa</button>
-                <button class="btn-delete" onclick="deleteEmployee(${index})">Xóa</button>
-            </td>
-        </tr>
-    `).join("");
-}
+        // Hiển thị danh sách nhân viên
+        function renderEmployeeTable() {
+            const table = document.getElementById("employee-table");
+            table.innerHTML = employees.map((employee, index) => `
+                <tr>
+                    <td>${employee.id}</td>
+                    <td>${employee.name}</td>
+                    <td>${employee.position}</td>
+                    <td>${employee.email}</td>
+                    <td>${employee.phone}</td>
+                    <td>
+                        <button class="btn-edit" onclick="editEmployee(${index})">Sửa</button>
+                        <button class="btn-delete" onclick="deleteEmployee(${index})">Xóa</button>
+                    </td>
+                </tr>
+            `).join("");
+        }
 
-// Mở form thêm nhân viên mới
-function openAddEmployeeForm() {
-    document.getElementById("form-overlay").style.display = "flex";
-    clearForm();
-}
+        // Mở form thêm nhân viên mới
+        function openAddEmployeeForm() {
+            document.getElementById("form-overlay").style.display = "flex";
+            clearForm();
+        }
 
-// Xóa nhân viên
-function deleteEmployee(index) {
-    if (confirm("Bạn có chắc chắn muốn xóa nhân viên này?")) {
-        employees.splice(index, 1);
-        renderEmployeeTable();
-    }
-}
+        // Xóa nhân viên
+        function deleteEmployee(index) {
+            if (confirm("Bạn có chắc chắn muốn xóa nhân viên này?")) {
+                employees.splice(index, 1);
+                saveEmployeesToLocalStorage(); // Cập nhật lại vào localStorage
+                renderEmployeeTable();
+            }
+        }
 
-// Hiển thị thông tin nhân viên để chỉnh sửa
-function editEmployee(index) {
-    const employee = employees[index];
-    document.getElementById("form-overlay").style.display = "flex";
-    document.getElementById("employee-id").value = employee.id;
-    document.getElementById("employee-name").value = employee.name;
-    document.getElementById("employee-position").value = employee.position;
-    document.getElementById("employee-email").value = employee.email;
-    document.getElementById("employee-phone").value = employee.phone;
-}
+        // Hiển thị thông tin nhân viên để chỉnh sửa
+        function editEmployee(index) {
+            const employee = employees[index];
+            document.getElementById("form-overlay").style.display = "flex";
+            document.getElementById("employee-id").value = employee.id;
+            document.getElementById("employee-name").value = employee.name;
+            document.getElementById("employee-position").value = employee.position;
+            document.getElementById("employee-email").value = employee.email;
+            document.getElementById("employee-phone").value = employee.phone;
+        }
 
-// Lưu thông tin nhân viên (thêm hoặc chỉnh sửa)
-function saveEmployee() {
-    const id = document.getElementById("employee-id").value || Date.now();
-    const name = document.getElementById("employee-name").value.trim();
-    const position = document.getElementById("employee-position").value.trim();
-    const email = document.getElementById("employee-email").value.trim();
-    const phone = document.getElementById("employee-phone").value.trim();
+        // Lưu thông tin nhân viên (thêm hoặc chỉnh sửa)
+        function saveEmployee() {
+            const id = document.getElementById("employee-id").value || Date.now();
+            const name = document.getElementById("employee-name").value.trim();
+            const position = document.getElementById("employee-position").value.trim();
+            const email = document.getElementById("employee-email").value.trim();
+            const phone = document.getElementById("employee-phone").value.trim();
 
-    if (!name || !position || !email || !phone) {
-        alert("Vui lòng điền đầy đủ thông tin.");
-        return;
-    }
+            if (!name || !position || !email || !phone) {
+                alert("Vui lòng điền đầy đủ thông tin.");
+                return;
+            }
 
-    // Kiểm tra nếu ID tồn tại, nghĩa là đang chỉnh sửa
-    const existingIndex = employees.findIndex(emp => emp.id == id);
-    if (existingIndex >= 0) {
-        employees[existingIndex] = { id, name, position, email, phone };
-    } else {
-        employees.push({ id, name, position, email, phone });
-    }
+            // Kiểm tra nếu ID tồn tại, nghĩa là đang chỉnh sửa
+            const existingIndex = employees.findIndex(emp => emp.id == id);
+            if (existingIndex >= 0) {
+                employees[existingIndex] = { id, name, position, email, phone };
+            } else {
+                employees.push({ id, name, position, email, phone });
+            }
 
-    closeForm();
-    renderEmployeeTable();
-}
+            saveEmployeesToLocalStorage(); // Lưu danh sách nhân viên vào localStorage
+            closeForm();
+            renderEmployeeTable();
+        }
 
-// Xóa dữ liệu form
-function clearForm() {
-    document.getElementById("employee-id").value = "";
-    document.getElementById("employee-name").value = "";
-    document.getElementById("employee-position").value = "";
-    document.getElementById("employee-email").value = "";
-    document.getElementById("employee-phone").value = "";
-}
+        // Lưu danh sách nhân viên vào localStorage
+        function saveEmployeesToLocalStorage() {
+            localStorage.setItem("employees", JSON.stringify(employees));
+        }
 
-// Đóng form
-function closeForm() {
-    document.getElementById("form-overlay").style.display = "none";
-}
+        // Xóa dữ liệu form
+        function clearForm() {
+            document.getElementById("employee-id").value = "";
+            document.getElementById("employee-name").value = "";
+            document.getElementById("employee-position").value = "";
+            document.getElementById("employee-email").value = "";
+            document.getElementById("employee-phone").value = "";
+        }
 
-// Khi trang được tải, hiển thị danh sách nhân viên
-document.addEventListener("DOMContentLoaded", renderEmployeeTable);
+        // Đóng form
+        function closeForm() {
+            document.getElementById("form-overlay").style.display = "none";
+        }
+
+        // Khi trang được tải, hiển thị danh sách nhân viên
+        document.addEventListener("DOMContentLoaded", renderEmployeeTable);
 
         </script>
     </body>

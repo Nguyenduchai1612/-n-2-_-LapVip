@@ -13,21 +13,25 @@
 <body>
     <div class="header">
 		<div class="header_inner">
-			<!-- <div class="logo"> -->
 			<a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/TrangChu.html"><img src="Ảnh/LapVip.png" alt="LAPVIP"></a>
-			
-			<div class="text" >
-				<input style="flex:1" type="text" class="form-control" id="search_home"
-					placeholder="Nhập tên máy tính, phụ kiện...cần tìm...">
-					<button><i class="fa-solid fa-magnifying-glass"></i></button>
+			<div class="text">
+			<input type="text" class="form-control" id="search_home" placeholder="Nhập tên máy tính, phụ kiện...cần tìm...">
+			<button><i class="fa-solid fa-magnifying-glass"></i></button>
 			</div>
 			<div class="text2">
-				<a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/dangnhap.html"><i class="fa-solid fa-house-laptop"></i><br>Đăng Nhập</a>
+				<a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/dangnhap.html" id="login-link">
+					<i class="fa-solid fa-house-laptop"></i><br>Đăng Nhập
+				</a>
+				<span id="user-info" style="display: none;">
+					<span id="username"></span>
+						<div id="logout-button">
+							<a href="#" id="logout-link">Đăng Xuất</a>
+				  		</div>
+				</span>
 				<a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/dangky.html"><i class="fa-regular fa-newspaper"></i><br>Tin Tức</a>
 				<a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/giohang.html"><i class="fa-solid fa-cart-shopping"></i><br>Giỏ Hàng</a>
-			</div>
-
-		</div>
+			  </div>
+		</div>		  
 		<div class="header__inner">
 			<ul class="menu">
 				<li class="menu_items">
@@ -37,65 +41,16 @@
 							<h4>Macbook Pro</h4>
 							<ul class="menu_child_list" style="display: flex;">
 								<div>
-									<li>Macbook Pro 2019</li>
-                                    <li>Macbook Pro 2020</li>
-                                    <li>Macbook Pro 13 M1</li>
-                                    <li>Macbook Pro 14 M1</li>
+									<a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/muahang.html"><li>Macbook Pro 2019</li></a>
+									<a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/muahang.html"><li>Macbook Pro 2020</li></a>
+									<a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/muahang.html"><li>Macbook Pro 13 M1</li></a>
+									<a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/muahang.html"><li>Macbook Pro 14 M1</li></a>
 								</div>
 								<div>
-									<li>Macbook Pro 16 M1</li>
-                                    <li>Macbook Pro 13 M2</li>
-									<li>Macbook Pro 14 2023</li>
-									<li>Macbook Pro 16 2023</li>
-							</ul>
-						</div>
-						<div class="menu_child_item">
-							<h4>Macbook Air</h4>
-							<ul class="menu_child_list" style="display: flex;">
-								<div>
-									<li>Macbook Air 2019</li>
-									<li>Macbook Air 2020</li>
-								</div>
-								<div>
-									<li>Macbook Air M1</li>
-									<li>Macbook Air M2</li>
-								</div>
-
-							</ul>
-						</div>
-						<div class="menu_child_item">
-							<h4>iMac - Mac Pro - Mini</h4>
-							<ul class="menu_child_list" style="display: flex;">
-								<div>
-									<li>iMac 2020</li>
-									<li>iMac M1</li>
-									<li>iMac Pro</li>
-								</div>
-								<div>
-									<li>Mac Mini</li>
-									<li>Mac Pro</li>
-								</div>
-							</ul>
-						</div>
-					</div>
-				</li>
-				<li class="menu_items">
-					MACBOOK
-					<div class="menu_child">
-						<div class="menu_child_item">
-							<h4>Macbook Pro</h4>
-							<ul class="menu_child_list" style="display: flex;">
-								<div>
-									<li>Macbook Pro 2019</li>
-									<li>Macbook Pro 2020</li>
-									<li>Macbook Pro 13 M1</li>
-									<li>Macbook Pro 14 M1</li>
-								</div>
-								<div>
-									<li>Macbook Pro 16 M1</li>
-									<li>Macbook Pro 13 M2</li>
-									<li>Macbook Pro 14 2023</li>
-									<li>Macbook Pro 16 2023</li>
+									<a href=""><li>Macbook Pro 16 M1</li></a>
+									<a href=""><li>Macbook Pro 13 M2</li></a>
+									<a href=""><li>Macbook Pro 14 2023</li></a>
+									<a href=""><li>Macbook Pro 16 2023</li></a>
 								</div>
 							</ul>
 						</div>
@@ -211,9 +166,8 @@
 						</div>
 					</div>
 				</li>
-				</li>
 				<li class="menu_items">
-					LAPTOP CŨ GIÁ RẺ
+					LAPTOP CŨ
 					<div class="menu_child">
 						<div class="menu_child_item">
 							<h4>Mục 1</h4>
@@ -242,9 +196,72 @@
 								<li>New</li>
 							</ul>
 						</div>
-
 					</div>
 				</li>
+				</li>
+				<li class="menu_items">
+					ĐỒNG HỒ CŨ 
+					<div class="menu_child">
+						<div class="menu_child_item">
+							<h4>Mục 1</h4>
+							<ul class="menu_child_list">
+								<li>New</li>
+								<li>New</li>
+								<li>New</li>
+								<li>New</li>
+							</ul>
+						</div>
+						<div class="menu_child_item">
+							<h4>Mục 2</h4>
+							<ul class="menu_child_list">
+								<li>New</li>
+								<li>New</li>
+								<li>New</li>
+								<li>New</li>
+							</ul>
+						</div>
+						<div class="menu_child_item">
+							<h4>Mục 3</h4>
+							<ul class="menu_child_list">
+								<li>New</li>
+								<li>New</li>
+								<li>New</li>
+								<li>New</li>
+							</ul>
+						</div>
+					</div>
+					<li class="menu_items">
+						PHỤ KIỆN 
+						<div class="menu_child">
+							<div class="menu_child_item">
+								<h4>Mục 1</h4>
+								<ul class="menu_child_list">
+									<li>New</li>
+									<li>New</li>
+									<li>New</li>
+									<li>New</li>
+								</ul>
+							</div>
+							<div class="menu_child_item">
+								<h4>Mục 2</h4>
+								<ul class="menu_child_list">
+									<li>New</li>
+									<li>New</li>
+									<li>New</li>
+									<li>New</li>
+								</ul>
+							</div>
+							<div class="menu_child_item">
+								<h4>Mục 3</h4>
+								<ul class="menu_child_list">
+									<li>New</li>
+									<li>New</li>
+									<li>New</li>
+									<li>New</li>
+								</ul>
+							</div>
+						</div>
+					</li>
 				</li>
 			</ul>
 		</div>
@@ -330,9 +347,9 @@
                             <li>Miễn phí cài đặt phần mềm, vệ sinh máy miễn phí trong suốt thời gian sử dụng</li>
                         </ul>
                     </div>
-                    <button class="buy">Mua Ngay</button>
+                    <button class="buy"><i class="fa-solid fa-money-check-dollar"></i> Mua Ngay</button>
                     <div class="add">
-                        <a href="" onclick="laytkmk()">Thêm Vào Giỏ Hàng</a>
+                        <a href="" onclick="laytkmk()"><i class="fa-solid fa-cart-shopping"></i> Thêm Vào Giỏ Hàng</a>
                     </div>
                     <div class="sp">
                         <div class="trai"><span>Trả Góp 0%</span>
@@ -380,11 +397,8 @@
                                     <a href="" class="zl">Zalo</a>
                                 </div>
                             </div>
-
                         </div>
-
-                    </div>
-`                                                                                       
+                    </div>                                                                                   
                     <div class="tthotro">
                         <div class="tt1">
                             <div class="avatar"><img
@@ -547,9 +561,35 @@
             alert("Sản phẩm đã được thêm vào giỏ hàng!");
     
             // Giữ người dùng ở lại trang mua sản phẩm
+            
         }
     </script>
-    
-
+    <script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const loginLink = document.getElementById('login-link');
+			const userInfo = document.getElementById('user-info');
+			const usernameSpan = document.getElementById('username');
+			const logoutButton = document.getElementById('logout-button');
+			const logoutLink = document.getElementById('logout-link');
+	  
+			// Kiểm tra trạng thái đăng nhập
+			const username = localStorage.getItem('username');
+			if (username) {
+				// Nếu đã đăng nhập
+				loginLink.style.display = 'none'; // Ẩn thẻ Đăng Nhập
+				userInfo.style.display = 'inline'; // Hiển thị phần tên người dùng
+				usernameSpan.textContent = `${username}`;
+			}
+			
+			// Xử lý đăng xuất
+			logoutLink.addEventListener('click', function () {
+				const confirmLogout = confirm("Bạn có chắc chắn muốn đăng xuất?");
+				if (confirmLogout) {
+					localStorage.removeItem('username'); // Xóa thông tin đăng nhập
+					location.reload(); // Tải lại trang để cập nhật giao diện
+				}
+			});
+		});
+	</script>
 </body>
 </html>

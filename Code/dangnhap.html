@@ -38,8 +38,44 @@
       <button id="loginBtn">Đăng Nhập</button>
     </div>
   </div>
-
   <script>
+    document.getElementById('loginBtn').addEventListener('click', function () {
+      const inputTK = document.getElementById('tk').value.trim();
+      const inputMK = document.getElementById('mk').value.trim();
+
+      // Kiểm tra tài khoản và mật khẩu không được để trống
+      if (!inputTK || !inputMK) {
+        alert('Vui lòng nhập cả tài khoản và mật khẩu.');
+        return;
+      }
+
+      // Giả lập danh sách tài khoản người dùng (Thay bằng API hoặc dữ liệu thật trong thực tế)
+      const users = JSON.parse(localStorage.getItem('users')) || [
+        { taiKhoan: 'user1', matKhau: '1234' },
+        { taiKhoan: 'user2', matKhau: '5678' }
+      ];
+
+      // Kiểm tra tài khoản admin
+      if (inputTK === "admin" && inputMK === "admin") {
+        alert('Đăng nhập thành công với tài khoản admin!');
+        localStorage.setItem('username', 'admin'); // Lưu tên tài khoản vào localStorage
+        window.location.href = 'Quantri.html'; // Chuyển đến trang quản trị
+        return;
+      }
+
+      // Kiểm tra tài khoản người dùng thông thường
+      const user = users.find(user => user.taiKhoan === inputTK && user.matKhau === inputMK);
+
+      if (user) {
+        alert(`Đăng nhập thành công! Chào mừng ${user.taiKhoan}`);
+        localStorage.setItem('username', user.taiKhoan); // Lưu tên tài khoản vào localStorage
+        window.location.href = 'TrangChu.html'; // Chuyển đến trang chủ
+      } else {
+        alert('Tài khoản hoặc mật khẩu không đúng. Vui lòng thử lại.');
+      }
+    });
+  </script>
+  <!-- <script>
     $(document).ready(function() {
       $('#loginBtn').on('click', function() {
         const inputTK = $('#tk').val().trim();
@@ -72,7 +108,7 @@
         }
       });
     });
-  </script>
+  </script> -->
 
 </body>
 

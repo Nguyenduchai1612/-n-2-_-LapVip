@@ -25,14 +25,14 @@ const images = ["https://lapvip.vn/upload/feature/thumb_750x326/xa-kho-gia-tot-1
   "https://lapvip.vn/upload/feature/thumb_750x326/asus-rog-strix-g18-g814-2023-1677646794.jpg",
   "https://lapvip.vn/upload/feature/thumb_750x326/lenovo-legion-5-pro-1676630463.jpg",
   "https://lapvip.vn/upload/feature/thumb_750x326/razer-blade-15-2022-1676630592.jpg"];
-setInterval(function () {
-  currentIndex = currentIndex + 1
-  if (currentIndex === 4) {
-    currentIndex = 0;
-  }
-  img.src = images[currentIndex];
-  
-}, 2000);
+  setInterval(function () {
+    currentIndex = currentIndex + 1
+    if (currentIndex === 4) {
+      currentIndex = 0;
+    }
+      img.src = images[currentIndex];
+    
+  }, 2000);
 
 // }
 // start();
