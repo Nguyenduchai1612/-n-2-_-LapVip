@@ -30,7 +30,7 @@ body {
     min-height: 30px;
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: center;    
    width: 100%;
 }
 
@@ -49,11 +49,9 @@ body {
     display: flex;
 }
 
-
 .menu_items:hover {
     transition: 0.25s;
     color: #7f7f7f;
-
 }
 
 .menu_items:hover .menu_child {
@@ -74,12 +72,15 @@ body {
     font-weight: bold;
     cursor: pointer;
 }
-.menu_child_list :hover{
+
+.menu_child_list :hover {
     color: #00ac20;
 }
-.menu_child_list a{
+
+.menu_child_list a {
     text-decoration: none;
 }
+
 .menu_child {
     position: absolute;
     top: 100%;
@@ -88,14 +89,14 @@ body {
     background-color: rgb(255, 255, 255);
     display: flex;
     visibility: hidden;
-    /*ẩn*/
     opacity: 0;
-    /*ẩn*/
     transition: 0.25s linear;
-    /*làm chậm*/
     justify-content: space-evenly;
     margin-top: 10px;
+    margin-left: 138px;
     font-size: 14px;
+    max-width: 1200px;
+    border-top: 1px solid #ccc;  /* Đường kẻ trên menu con */
 }
 
 .menu_child_list {
@@ -104,13 +105,22 @@ body {
 
 .menu_child_list li {
     padding: 0.5rem;
-    color: black;
+    color: rgb(0, 0, 0);
     padding-left: 5px;
 }
 
 .menu_child_item {
-    width: 25%;
+    width: 28%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    border-left: 1px solid #ccc;
+    padding-left: 10px;
+    padding-right: 10px;
+}
 
+.menu_child_item:first-child {
+    border-left: none;  /* Loại bỏ đường kẻ cho thẻ đầu tiên */
 }
 
 .menu_child_item h4 {
@@ -123,7 +133,6 @@ body {
     background-color: rgb(21, 153, 43);
     border-radius: 0 0 20px 0px;
 }
-
 .logo {
     max-width: 2rem;
 }
@@ -144,7 +153,7 @@ body {
 .text {
     
     margin-left: 0;
-    width: 500px;
+    width: 550px;
     display: flex;
     align-items: center;
     position: relative;
@@ -205,7 +214,51 @@ body {
     margin-right: 10px;
     border-radius: 0 3px 3px 0;
 }
+#search-results {
+    position: absolute;
+    top: 53px;
+    left: 0;
+    width: 89%;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 999;
+    cursor: pointer;
+}
 
+#search-results div {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#search-results div:hover {
+    background-color: #f9f9f9;
+}
+
+#search-results img {
+    width: 70px;
+    height: auto;
+    margin-right: 10px;
+}
+
+#search-results h4 {
+    max-width: 180px;
+    margin: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+#search-results p {
+    margin: 15px 0px 0px 50px;
+    color: #777;
+    font-size: 14px;
+}
 .intro {
     align-items: center;
     width: 1200px;
@@ -527,4 +580,33 @@ body {
 .cuoitrang .khochua{
     width: 19%;
     height: 99%;
+}
+#user-info {
+    display: inline-block;
+}
+  
+#username {
+    font-weight: bold;
+    display: block;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: 18px;
+}
+  
+#logout-button {
+    margin-top: 7px;
+}
+
+#logout-button a {
+    padding: 2px 5px;
+    background-color: #169C2C;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 12px;
+    text-align: left;
+}
+  
+#logout-button a:hover {
+    background-color: #00ac20;
 }

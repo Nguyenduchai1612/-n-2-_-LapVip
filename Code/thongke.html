@@ -7,118 +7,69 @@
     <link rel="stylesheet" href="thongke.css">
     <title>ĐỒ ÁN _ LapVip/Code/ThongKe</title>
     <script src="https://kit.fontawesome.com/faa982bf4c.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thống kê | LapVip</title>
-    <link rel="stylesheet" href="ThongKe.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="header">
-		<div class="header_inner">
-			<!-- <div class="logo"> -->
-			<a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/TrangChu.html"><img src="Ảnh/LapVip.png" alt="LAPVIP"></a>
+        <div class="header_inner">
+            <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/QuanTri.html"><img src="Ảnh/LapVip.png" alt="LAPVIP"></a>
+            <div class="text">
+                <input type="text" class="form-control" id="search_home" placeholder="Nhập tên máy tính, phụ kiện...cần tìm...">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div class="text2">
+                <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/dangnhap.html" id="login-link">
+                    <i class="fa-solid fa-house-laptop"></i><br>Đăng Nhập
+                </a>
+                <span id="user-info" style="display: none;">
+                    <span id="username"></span>
+                    <div id="logout-button">
+                        <a href="#" id="logout-link">Đăng Xuất</a>
+                    </div>
+                </span>
+                <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/dangky.html"><i class="fa-regular fa-newspaper"></i><br>Tin Tức</a>
+                <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/giohang.html"><i class="fa-solid fa-message"></i><br>Phản Hồi</a>
+            </div>
+        </div>
+    </div>
 
-			<div class="text" >
-				<input type="text" class="form-control" id="search_home"
-					placeholder="Nhập tên máy tính, phụ kiện...cần tìm...">
-					<button><i class="fa-solid fa-magnifying-glass"></i></button>
-			</div>
-			<div class="text2">
-                <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/dangnhap.html"><i class="fa-solid fa-laptop"></i><br>Sản phẩm</a>
-                <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/nhanvien.html"><i class="fa-solid fa-user-group"></i><br>Nhân viên</a>
-                <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/thongke.html"><i class="fa-solid fa-chart-line"></i><br>Thống kê</a>
-			</div>
-		</div>
-
-    <!-- Nội dung chính -->
     <main class="container">
-        <!-- Thống kê nhanh -->
         <section class="stats-overview">
             <div class="stat-item">
                 <h3>Doanh Thu Hôm Nay</h3>
-                <p id="revenue-today">0 VNĐ</p>
+                <p id="revenue-today">32.000.000 VNĐ</p>
             </div>
             <div class="stat-item">
                 <h3>Tổng Đơn Hàng</h3>
-                <p id="total-orders">0</p>
+                <p id="total-orders">14</p>
             </div>
             <div class="stat-item">
                 <h3>Sản Phẩm Đã Bán</h3>
-                <p id="products-sold">0</p>
+                <p id="products-sold">22</p>
             </div>
         </section>
-
-        <!-- Biểu đồ -->
+    
         <section class="chart-section">
-            <h3>Doanh Thu Theo Ngày</h3>
+            <h3>Doanh Thu Theo Tuần/Tháng/Năm</h3>
             <div class="chart-container">
-                <canvas id="revenue-chart"></canvas>
+                <div class="main-chart">
+                    <canvas id="revenue-chart"></canvas>
+                </div>
+                <div class="side-charts">
+                    <div class="side-chart">
+                        <canvas id="monthly-revenue-chart"></canvas>
+                    </div>
+                    <div class="side-chart">
+                        <canvas id="yearly-revenue-chart"></canvas>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
+    
     <div style="height: 1px;width: 1200px;margin: auto; background-color: #808080; margin-bottom: 40px;"></div>
 
-    <script src="ThongKe.js"></script>
-    <script>
-        // Dữ liệu giả lập
-const stats = {
-    revenueToday: 7000000, // Doanh thu hôm nay
-    totalOrders: 130, // Tổng số đơn hàng
-    productsSold: 400, // Số sản phẩm đã bán
-    revenuePerDay: [ // Doanh thu theo 7 ngày
-        { day: "Thứ 2", revenue: 1500000 },
-        { day: "Thứ 3", revenue: 2000000 },
-        { day: "Thứ 4", revenue: 2500000 },
-        { day: "Thứ 5", revenue: 3000000 },
-        { day: "Thứ 6", revenue: 3500000 },
-        { day: "Thứ 7", revenue: 5000000 },
-        { day: "Chủ Nhật", revenue: 4000000 },
-    ],
-};
+    <script src="JS/ThongKe.js"></script>
 
-// Cập nhật số liệu thống kê
-document.getElementById("revenue-today").textContent = formatCurrency(stats.revenueToday);
-document.getElementById("total-orders").textContent = stats.totalOrders;
-document.getElementById("products-sold").textContent = stats.productsSold;
-
-// Hàm định dạng tiền tệ
-function formatCurrency(amount) {
-    return amount.toLocaleString("vi-VN", { style: "currency", currency: "VND" });
-}
-
-// Vẽ biểu đồ doanh thu
-const ctx = document.getElementById("revenue-chart").getContext("2d");
-new Chart(ctx, {
-    type: "bar",
-    data: {
-        labels: stats.revenuePerDay.map(data => data.day),
-        datasets: [{
-            label: "Doanh thu (VNĐ)",
-            data: stats.revenuePerDay.map(data => data.revenue),
-            backgroundColor: "rgba(54, 162, 235, 0.6)",
-            borderColor: "rgba(54, 162, 235, 1)",
-            borderWidth: 1,
-        }]
-    },
-    options: {
-        responsive: true,
-        scales: {
-            y: {
-                beginAtZero: true,
-                ticks: {
-                    callback: value => formatCurrency(value),
-                },
-            },
-        },
-    },
-});
-
-    </script>
 </body>
 </html>

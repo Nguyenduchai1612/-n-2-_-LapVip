@@ -1,4 +1,3 @@
-
 body {
     font-family: Arial, sans-serif;
     background-color: #e7e6e6;
@@ -30,7 +29,7 @@ body {
     min-height: 30px;
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: center;    
    width: 100%;
 }
 
@@ -133,7 +132,6 @@ body {
     background-color: rgb(21, 153, 43);
     border-radius: 0 0 20px 0px;
 }
-
 
 .logo {
     max-width: 2rem;

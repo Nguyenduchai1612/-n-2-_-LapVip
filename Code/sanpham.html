@@ -9,27 +9,32 @@
     <script src="https://kit.fontawesome.com/faa982bf4c.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="header">
-        <div class="header_inner">
-            <!-- <div class="logo"> -->
-            <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/Quantri.html"><img src="Ảnh/LapVip.png" alt="LAPVIP"></a>
-
-            <div class="text" >
-                <input type="text" class="form-control" id="search_home"
-                    placeholder="Nhập tên máy tính, phụ kiện...cần tìm...">
-                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
-            <div class="text2">
-                <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/dangnhap.html"><i class="fa-solid fa-laptop"></i><br>Sản phẩm</a>
-                <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/nhanvien.html"><i class="fa-solid fa-user-group"></i><br>Nhân viên</a>
-                <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/thongke.html"><i class="fa-solid fa-chart-line"></i><br>Thống kê</a>
-            </div>
+    <div class="header_inner">
+        <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/QuanTri.html"><img src="Ảnh/LapVip.png" alt="LAPVIP" class="logo-link"></a>
+        
+        <div class="text">
+            <input type="text" class="form-control" id="search_home" placeholder="Nhập tên máy tính, phụ kiện...cần tìm...">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        
+        <div class="text2">
+            <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/dangnhap.html" id="login-link">
+                <i class="fa-solid fa-house-laptop"></i><br>Đăng Nhập
+            </a>
+            <span id="user-info" style="display: none;">
+                <span id="username">John Doe</span>
+                <div id="logout-button">
+                    <a href="#" id="logout-link">Đăng Xuất</a>
+                </div>
+            </span>
+            <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/dangky.html"><i class="fa-regular fa-newspaper"></i><br>Tin Tức</a>
+            <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/giohang.html"><i class="fa-solid fa-message"></i><br>Phản Hồi</a>
         </div>
     </div>
     <main class="container">
         <section class="menu-list">
             <h2>Danh Sách Menu</h2>
-            <button id="btn-add" onclick="openAddMenuForm()">Thêm Menu Mới</button>
+            <button id="btn-add" onclick="openAddMenuForm()">Thêm Sản Phẩm Mới</button>
             <table>
                 <thead>
                     <tr>
@@ -37,7 +42,6 @@
                         <th>Tên Sản Phẩm</th>
                         <th>Giá</th>
                         <th>Giá Cũ</th>
-                        <th>Giảm Giá</th>
                         <th>Danh Mục</th>
                         <th>Hành Động</th>
                     </tr>
@@ -51,11 +55,12 @@
         <!-- Form thêm mới menu -->
         <div class="form-overlay" id="form-overlay">
             <div class="menu-form">
-                <h3>Thêm Menu Mới</h3>
-                <label for="menu-img">Hình Ảnh:</label>
-                <input type="file" id="menu-img" onchange="previewImage(event)">
+                <h3>Thêm Sản Phẩm Mới</h3>
+                <div class="menu-option">
+                    <label for="menu-img">Hình Ảnh:</label>
+                    <input type="file" id="menu-img" onchange="previewImage(event)">
+                </div>
                 <img id="menu-img-preview" class="menu-image-preview" alt="Preview" />
-
                 <label for="menu-name">Tên Sản Phẩm:</label>
                 <input type="text" id="menu-name">
 
@@ -69,9 +74,9 @@
                 <select id="menu-category">
                     <option value="Hot">Hot</option>
                     <option value="Macbook">Macbook</option>
-                    <option value="Dell">Dell</option>
-                    <option value="HP">HP</option>
-                    <option value="ASUS">ASUS</option>
+                    <option value="Surface">Surface</option>
+                    <option value="Office">Office</option>
+                    <option value="Gaming">Gaming</option>
                     <option value="LG">LG</option>
                 </select>
 
@@ -80,136 +85,6 @@
             </div>
         </div>
     </main>
-
-    <script>
-        let menu = JSON.parse(localStorage.getItem("menu")) || [];
-        let editingIndex = null; // Biến lưu index của sản phẩm đang sửa
-    
-        // Hiển thị danh sách menu
-        function renderMenuTable() {
-            const table = document.getElementById("menu-table");
-            table.innerHTML = menu.map((item, index) => `
-                <tr>
-                    <td><img src="${item.image}" alt="${item.name}" class="menu-image"></td>
-                    <td>${item.name}</td>
-                    <td>${item.price}</td>
-                    <td>${item.oldPrice}</td>
-                    <td>${item.discount}</td>
-                    <td>${item.category}</td>
-                    <td>
-                        <button class="btn-edit" onclick="editMenu(${index})">Sửa</button>
-                        <button class="btn-delete" onclick="deleteMenu(${index})">Xóa</button>
-                    </td>
-                </tr>
-            `).join("");
-        }
-    
-        // Lưu thông tin menu (thêm mới hoặc sửa)
-        function saveMenu() {
-            const name = document.getElementById("menu-name").value.trim();
-            const price = parseNumberFromString(document.getElementById("menu-price").value.trim()); // Chuyển về số
-            const oldPrice = parseNumberFromString(document.getElementById("menu-old-price").value.trim()); // Chuyển về số
-            const category = document.getElementById("menu-category").value;
-            const imageInput = document.getElementById("menu-img");
-            const image = imageInput.files[0]
-                ? URL.createObjectURL(imageInput.files[0])
-                : document.getElementById("menu-img-preview").src;
-    
-            if (!name || isNaN(price) || isNaN(oldPrice) || !category || !image) {
-                alert("Vui lòng điền đầy đủ thông tin.");
-                return;
-            }
-    
-            const discount = `Giảm ${formatCurrency(oldPrice - price)}`; // Tính giảm giá
-    
-            if (editingIndex !== null) {
-                // Chỉnh sửa sản phẩm
-                menu[editingIndex] = {
-                    ...menu[editingIndex],
-                    name,
-                    price: formatCurrency(price), // Định dạng lại giá
-                    oldPrice: formatCurrency(oldPrice), // Định dạng lại giá cũ
-                    discount,
-                    category,
-                    image,
-                };
-            }
-    
-            saveMenuToLocalStorage(); // Lưu danh sách vào localStorage
-            closeForm(); // Đóng form
-            renderMenuTable(); // Hiển thị lại danh sách sau khi sửa
-        }
-    
-        // Lưu danh sách menu vào localStorage
-        function saveMenuToLocalStorage() {
-            localStorage.setItem("menu", JSON.stringify(menu)); // Lưu danh sách menu vào localStorage
-        }
-    
-        // Mở form thêm mới menu
-        function openAddMenuForm() {
-            document.getElementById("form-overlay").style.display = "flex";
-            clearForm();
-            editingIndex = null;
-        }
-    
-        // Mở form chỉnh sửa menu
-        function editMenu(index) {
-            const item = menu[index];
-            document.getElementById("form-overlay").style.display = "flex";
-            document.getElementById("menu-name").value = item.name;
-            document.getElementById("menu-price").value = parseNumberFromString(item.price); // Chuyển về số
-            document.getElementById("menu-old-price").value = parseNumberFromString(item.oldPrice); // Chuyển về số
-            document.getElementById("menu-category").value = item.category;
-            document.getElementById("menu-img-preview").src = item.image;
-            editingIndex = index;
-        }
-    
-        // Xóa menu
-        function deleteMenu(index) {
-            if (confirm("Bạn có chắc chắn muốn xóa menu này?")) {
-                menu.splice(index, 1); // Xóa sản phẩm trong mảng
-                saveMenuToLocalStorage(); // Lưu lại danh sách mới vào localStorage
-                renderMenuTable(); // Hiển thị lại danh sách
-            }
-        }
-    
-        // Xóa dữ liệu form
-        function clearForm() {
-            document.getElementById("menu-name").value = "";
-            document.getElementById("menu-price").value = "";
-            document.getElementById("menu-old-price").value = "";
-            document.getElementById("menu-category").value = "";
-            document.getElementById("menu-img").value = "";
-            document.getElementById("menu-img-preview").src = "";
-        }
-    
-        // Đóng form
-        function closeForm() {
-            document.getElementById("form-overlay").style.display = "none";
-        }
-    
-        // Xem trước hình ảnh
-        function previewImage(event) {
-            const preview = document.getElementById("menu-img-preview");
-            preview.src = URL.createObjectURL(event.target.files[0]);
-        }
-    
-        // Hàm định dạng giá trị từ số nguyên thành chuỗi kiểu "59.900.000 đ"
-        function formatCurrency(value) {
-            return new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(value).replace("₫", " đ");
-        }
-    
-        // Hàm chuyển chuỗi giá trị sang số nguyên
-        function parseNumberFromString(value) {
-            return parseInt(value.replace(/[^\d]/g, ""), 10); // Bỏ mọi ký tự không phải số
-        }
-    
-        // Khi trang được tải, hiển thị danh sách menu
-        document.addEventListener("DOMContentLoaded", () => {
-            menu = JSON.parse(localStorage.getItem("menu")) || []; // Lấy dữ liệu từ localStorage
-            renderMenuTable(); // Hiển thị bảng menu
-        });
-    </script>
-    
+    <script src="JS/SanPham.js"></script>
 </body>
 </html>

@@ -13,10 +13,8 @@
 <body>
   <div class="header">
 		<div class="header_inner">
-			<!-- <div class="logo"> -->
-			<a href=""><img src="Ảnh/LapVip.png" alt="LAPVIP"></a>
+		  <a href=""><img src="Ảnh/LapVip.png" alt="LAPVIP"></a>
 			
-			<!-- </div> -->
 			<div class="text" >
 				<input style="flex:1" type="text" class="form-control" id="search_home"
 					placeholder="Nhập tên máy tính, phụ kiện...cần tìm...">
@@ -27,7 +25,6 @@
 				<a href="">Tin tức</a>
         <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/TrangChu.html">Trang chủ</a>
 			</div>
-
 		</div>
 	</div>
   <div class="login-page">
@@ -38,78 +35,6 @@
       <button id="loginBtn">Đăng Nhập</button>
     </div>
   </div>
-  <script>
-    document.getElementById('loginBtn').addEventListener('click', function () {
-      const inputTK = document.getElementById('tk').value.trim();
-      const inputMK = document.getElementById('mk').value.trim();
-
-      // Kiểm tra tài khoản và mật khẩu không được để trống
-      if (!inputTK || !inputMK) {
-        alert('Vui lòng nhập cả tài khoản và mật khẩu.');
-        return;
-      }
-
-      // Giả lập danh sách tài khoản người dùng (Thay bằng API hoặc dữ liệu thật trong thực tế)
-      const users = JSON.parse(localStorage.getItem('users')) || [
-        { taiKhoan: 'user1', matKhau: '1234' },
-        { taiKhoan: 'user2', matKhau: '5678' }
-      ];
-
-      // Kiểm tra tài khoản admin
-      if (inputTK === "admin" && inputMK === "admin") {
-        alert('Đăng nhập thành công với tài khoản admin!');
-        localStorage.setItem('username', 'admin'); // Lưu tên tài khoản vào localStorage
-        window.location.href = 'Quantri.html'; // Chuyển đến trang quản trị
-        return;
-      }
-
-      // Kiểm tra tài khoản người dùng thông thường
-      const user = users.find(user => user.taiKhoan === inputTK && user.matKhau === inputMK);
-
-      if (user) {
-        alert(`Đăng nhập thành công! Chào mừng ${user.taiKhoan}`);
-        localStorage.setItem('username', user.taiKhoan); // Lưu tên tài khoản vào localStorage
-        window.location.href = 'TrangChu.html'; // Chuyển đến trang chủ
-      } else {
-        alert('Tài khoản hoặc mật khẩu không đúng. Vui lòng thử lại.');
-      }
-    });
-  </script>
-  <!-- <script>
-    $(document).ready(function() {
-      $('#loginBtn').on('click', function() {
-        const inputTK = $('#tk').val().trim();
-        const inputMK = $('#mk').val().trim();
-  
-        // Kiểm tra tài khoản và mật khẩu
-        if (!inputTK || !inputMK) {
-          alert('Vui lòng nhập cả tài khoản và mật khẩu.');
-          return;
-        }
-  
-        // Kiểm tra tài khoản và mật khẩu
-        if (inputTK === "admin" && inputMK === "admin") {
-          // Nếu tài khoản và mật khẩu đúng là admin
-          alert('Đăng nhập thành công với tài khoản admin!');
-          window.location.href = 'http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/Quantri.html'; // Trang quản trị admin
-        } else {
-          // Nếu tài khoản và mật khẩu sai hoặc không phải admin
-          let users = JSON.parse(localStorage.getItem('users')) || [];
-  
-          // Kiểm tra tài khoản và mật khẩu người dùng khác
-          const user = users.find(user => user.taiKhoan === inputTK && user.matKhau === inputMK);
-  
-          if (user) {
-            alert('Đăng nhập thành công!');
-            window.location.href = 'http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/TrangChu.html'; // Trang chủ người dùng
-          } else {
-            alert('Tài khoản hoặc mật khẩu không đúng. Vui lòng thử lại.');
-          }
-        }
-      });
-    });
-  </script> -->
-
+  <script src="JS/DangNhap.js"></script>
 </body>
-
 </html>

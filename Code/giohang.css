@@ -1,4 +1,3 @@
-
 body {
     font-family: Arial, sans-serif;
     background-color: #e7e6e6;
@@ -6,10 +5,12 @@ body {
     max-width: 1500px;
     margin-top: 80px;
 }
-* {
+
+*{
     margin: 0;
     padding: 0;
 }
+
 .header_inner {
     margin:  auto;
     max-width: 100%;
@@ -24,16 +25,19 @@ body {
     right: 0;
     z-index: 1000;
 }
+
 .header_inner a{color: #ffffff;
     text-decoration: none
 }
+
 .text {
     margin-left: 0;
-    width: 500px;
+    width: 550px;
     display: flex;
     align-items: center;
     position: relative;
 }
+
 .text input {
     /* flex: 1; */
     width: 1000%;
@@ -46,35 +50,40 @@ body {
     padding: 10px 50px 10px 10px; 
     margin: 10px 0;
 }
+
 .text input:focus{
     border-color: chocolate;
     outline: none;
 }
+
 .text input::placeholder{
     color:#9F9689;
     font-size: larger;
 }
+
 .text i{
     font-size: 20px;
 }
+
 .text2{
     display: flex;justify-content: space-between;
     width: 250px;
 
 }
+
 .text2 a {
-    text-align: center; /* Center the content */
-    font-size: 12px; /* Smaller text size */
+    text-align: center;
+    font-size: 12px;
 }
 
 .text2 i {
-    font-size: 25px; /* Larger icons */
-    margin-bottom: 5px; /* Space between icon and text */
+    font-size: 25px;
+    margin-bottom: 5px;
     color: black;
 }
 
 .text2 a:hover {
-    text-decoration: none; /* Remove underline on hover */
+    text-decoration: none;
 }
 
 .text button {
@@ -90,10 +99,12 @@ body {
     color:white;
     margin-right: 10px;
     border-radius: 0 3px 3px 0;
-}#user-info {
+}
+
+#user-info {
     display: inline-block;
 }
-  
+
 #username {
     font-weight: bold;
     display: block;
@@ -101,34 +112,36 @@ body {
     text-align: center;
     font-size: 18px;
 }
-  
+
 #logout-button {
     margin-top: 7px;
 }
 
 #logout-button a {
     padding: 2px 5px;
-    background-color: #169C2C;
+    background-color: #9F9689;
     color: white;
     text-decoration: none;
     border-radius: 4px;
     font-size: 12px;
     text-align: left;
 }
-  
+
 #logout-button a:hover {
     background-color: #00ac20;
 }
-/* Tổng quan giỏ hàng */
+
 .giohang {
     width: 1200px;
     margin: auto;
     padding: 20px;
+    padding-bottom: 0px;
     background-color: #FFFFFF;
     position: relative;
 }
-
-/* Nút xóa toàn bộ giỏ hàng */
+.giohang h2 {
+    margin-left: 10px;
+}
 .giohang .btn-delete-all {
     float: right;
     background-color: #169c2c;
@@ -139,6 +152,7 @@ body {
     cursor: pointer;
     border-radius: 5px;
     margin-bottom: 10px;
+    margin-right: 30px;
     transition: background-color 0.3s ease;
 }
 
@@ -146,80 +160,93 @@ body {
     background-color: #00ac20;
 }
 
-/* Sản phẩm trong giỏ hàng */
-.sanpham1 {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 5px;
-}
-
-.sanpham1 .anh {
-    width: 160px;
-    height: 120px;
-    margin-right: 15px;
-    background-image: url("Ảnh/maytinh1mini.jpg");
-    background-position: center;
-    background-size: cover;
-}
-
-.sanpham1 .noidungsp {
-    flex: 2;
-    padding: 10px 20px;
-}
-
-.sanpham1 .gia {
-    flex: 1;
+.giohang .thongtinnhieusanpham {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    gap: 20px;
+    padding: 10px 0;
+    overflow-y: auto;
+}
+
+.empty-cart-message {
+    text-align: center;
+}
+.empty-cart-message h2 {
+    margin: 10px;
+}
+.empty-cart-message h4 {
+    margin: 15px;
+}
+.empty-cart-message button {
+    background-color: #169c2c;
+    padding: 10px 15px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    border: #00ac20;
+}
+.empty-cart-message a {
+    text-decoration: none;
+    color: white;
+}
+
+.sanpham1 {
+    width: 98%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 10px;
 }
 
-.gia .price-container {
+.sanpham1 img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.sanpham1 .noidungsp {
+    flex: 1;
+    padding: 0 10px;
+    font-size: 16px;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.old-price {
+    text-align: right;
+    margin-right: 20px;
+    font-size: 18px;
+}
+.new-price {
+    text-align: right;
+    margin-right: 20px;
+    font-size: 15px;
+}
+.price-container {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-}
-
-.gia .giaCu {
-    font-size: 14px;
-    color: #999;
-    text-decoration: line-through;
-}
-
-.gia .giaMoi {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-}
-
-.gia .thanhtien {
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 10px;
-    color: #169c2c;
-}
-
-/* Số lượng sản phẩm */
-.gia .soluong {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
     gap: 10px;
+    width: 250px;
+    height: 100px;
+    white-space: nowrap;
 }
 
-/* Container cho các nút cộng, trừ */
 .quantity-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    gap: 5px;
+    text-align: right;
+    margin-right: 20px;
 }
 
-/* Các nút cộng, trừ */
 .quantity-btn {
     width: 30px;
-    height: 30px;
+    height: 25px;
     font-size: 20px;
     text-align: center;
     cursor: pointer;
@@ -233,7 +260,6 @@ body {
     background-color: #128C22;
 }
 
-/* Input số lượng */
 .quantity-input {
     width: 50px;
     height: 30px;
@@ -241,81 +267,43 @@ body {
     text-align: center;
     border: 1px solid #ccc;
     border-radius: 5px;
-}
-/* Nút đặt hàng */
-.giohang button {
-    padding: 10px 20px;
-    background-color: #169C2C;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.giohang button:hover {
-    background-color: #128C22;
-}
-.btn-delete {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    font-size: 20px;
-    color: #169C2C;
-    transition: color 0.3s ease, transform 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
-    border-radius: 10px;
-}
-
-.btn-delete:hover {
-    color: #fff;
-    transform: scale(1.05);
-}
-
-.btn-delete i {
-    font-size: 20px;
+    margin-left: 5px;
     margin-right: 5px;
 }
-.sanpham1 .btn-delete {
+.thanhtien {
+    text-align: right;
+    margin-right: 20px;
+    font-size: 17px;
+}
+
+.product-info {
+    margin-left: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 40%;
+}
+
+.product-info .btn-delete {
+    margin-left: auto;
+    color: #ffffff;
+    margin: 10px;
     background-color: transparent;
     border: none;
     cursor: pointer;
-    padding: 10px 10px 10px 0px;
     font-size: 20px;
-    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    margin: 10px 10px 10px 0px;
-    transition: transform 0.3s ease; /* Thêm hiệu ứng chuyển động mượt mà */
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.sanpham1 .btn-delete:hover {
-    transform: scale(1.2); /* Phóng to khi hover */
-}
-/* Chỉnh khoảng cách giữa Giá cũ và Giá mới */
-.price-container {
-    display: flex;
-    flex-direction: column;  /* Cho phép các giá cũ và mới nằm dọc */
-    gap: 10px; /* Khoảng cách giữa các phần tử */
+.product-info .btn-delete:hover {
+    transform: scale(1.1);
 }
 
-/* Điều chỉnh kích thước input số lượng */
-.price-container input[type="number"] {
-    width: 50px; /* Kích thước rộng hơn */
-    height: 30px; /* Kích thước cao hơn */
-    font-size: 16px; /* Thay đổi kích thước chữ bên trong input */
-    text-align: center; /* Căn giữa chữ số */
-    padding: 5px; /* Thêm padding để phần chữ không quá sát cạnh */
-}
-
-
-/* Mã giảm giá */
 .ma-giam-gia {
     display: flex;
     align-items: center;
@@ -323,11 +311,11 @@ body {
     padding: 15px;
     background-color: #f8f8f8;
     border-radius: 8px;
-    gap: 10px;
+    gap: 0px;
 }
 
 .ma-giam-gia input[type="text"] {
-    flex: 1;
+    margin-left: 10px;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -335,11 +323,11 @@ body {
 }
 
 .ma-giam-gia button {
+    margin-left: 10px;
     background-color: #169c2c;
     color: white;
     border: none;
     padding: 10px 20px;
-    font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease;
@@ -349,7 +337,27 @@ body {
     background-color: #00ac20;
 }
 
-/* Phương thức thanh toán */
+.tongtien {
+    margin-left: 540px;
+    font-family: Arial, sans-serif;
+    line-height: 1.8;
+    text-align: right;
+}   
+.tongtien .tamtinh {
+    font-style: italic;
+    font-size: 16px;
+}
+.tongtien .tamtinh-price {
+    color: #9F9689;
+}
+.tongtien .tongtien-total {
+    font-size: 17px;
+    font-weight: bold;
+}
+.tongtien .tongtien-price {
+    color: #00ac20;
+}
+
 .phuong-thuc-thanh-toan {
     margin-top: 30px;
     padding: 15px;
@@ -360,49 +368,18 @@ body {
 .phuong-thuc-thanh-toan h3 {
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .phuong-thuc-thanh-toan .radio-option {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .phuong-thuc-thanh-toan input[type="radio"] {
-    margin-right: 10px;
-}
-
-/* Thông tin khách hàng */
-.form-thong-tin {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #f8f8f8;
-    border-radius: 8px;
-}
-
-.form-thong-tin h3 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.form-thong-tin label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.form-thong-tin input,
-.form-thong-tin select {
-    width: 100%;
-    max-width: 600px;
-    padding: 10px;
-    margin-bottom: 15px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    margin-right: 20px;
+    transform: scale(1.3);
 }
 
 #bank-info p {
@@ -410,3 +387,147 @@ body {
     margin-bottom: 10px;
 }
 
+.form-thong-tin h3 {
+    margin-top: 20px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.form-group label {
+    width: 250px;
+    margin-right: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.form-group input {
+    max-width: 800px;
+    height: 35px;
+    flex: 1;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group select {
+    max-width: 812px;
+    height: 43px;
+    flex: 1;
+    padding: 5px;
+    font-size: 16px;
+    color: #9F9689;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.thong-tin-khach-hang {
+    text-align: center;
+}
+
+.thong-tin-khach-hang button {
+    width: 150px;
+    background-color: #169c2c;
+    color: white;
+    border: 1px solid #00ac20;
+    padding: 10px 15px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.5s ease;
+    margin-bottom: 30px;
+}
+
+.thong-tin-khach-hang button:hover {
+    background-color: #ffffff00;
+    border: 1px solid #00ac20;
+}
+
+.form-thong-tin {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+    display: none;
+}
+
+.form-thong-tin h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #00ac20;
+    padding-bottom: 10px;
+}
+
+.form-thong-tin p {
+    font-size: 1.1em;
+    color: #555;
+    margin: 8px 0;
+}
+
+.form-thong-tin p span {
+    font-weight: bold;
+}
+
+.form-thong-tin:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#bank-info.show {
+    display: block;
+}
+
+.form-thong-tin .note {
+    font-style: italic;
+    color: #777;
+}
+
+.cuoitrang {
+    width: 1120px;
+    margin: auto;
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cuoitrang .khochua {
+    width: 19%;
+    height: 99%;
+}
+
+.khochua h2 {
+    font-size: 18px;
+    color: #787878;
+}
+
+.item1 ul {
+    width: 100%;
+    height: auto;
+    font-size: 14px;
+    list-style: none;
+}
+
+.item2 ul {
+    margin-top: 20px;
+    margin-left: 15px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.khoiketnoi {
+    display: flex;
+    justify-content: space-between;
+    height: 32px;
+    width: 100%;
+}

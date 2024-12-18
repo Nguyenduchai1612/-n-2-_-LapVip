@@ -13,8 +13,9 @@
 		<div class="header_inner">
 			<a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/TrangChu.html"><img src="Ảnh/LapVip.png" alt="LAPVIP"></a>
 			<div class="text">
-			<input type="text" class="form-control" id="search_home" placeholder="Nhập tên máy tính, phụ kiện...cần tìm...">
-			<button><i class="fa-solid fa-magnifying-glass"></i></button>
+				<input type="text" class="form-control" id="search_home" placeholder="Nhập tên máy tính, phụ kiện...cần tìm...">
+				<button><i class="fa-solid fa-magnifying-glass"></i></button>
+				<div id="search-results"></div>
 			</div>
 			<div class="text2">
 				<a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/dangnhap.html" id="login-link">
@@ -494,86 +495,6 @@
 			</div> -->
 		</div>
 	</div>
-	<script>
-		function loadMenu() {
-			const menu = JSON.parse(localStorage.getItem('menu'));
-			if (!menu) {
-				return;
-			}
-
-			const menuContainer = document.querySelector(".danhsachkhuyenmailoai1");
-	
-			menu.forEach((item, index) => {
-				const itemHTML = `
-					<div class="thanhphan">
-						<a href="#" onclick="laygt('ten${index}', 'gia${index}', 'anh${index}', 'giacu${index}'); return false;">
-							<div class="hinhanh">
-								<img id="anh${index}" class="anhmauhang" src="${item.image}" alt="">
-							</div>
-						</a>
-						<div class="thongtingiaban">
-							${item.discount ? `<span class="giamgia">${item.discount}</span>` : ''}
-							<h4 id="ten${index}" class="ten">${item.name}</h4>
-							<span class="caidat margin-top">(Tùy chọn ${item.configurations || '1'} cấu hình)</span><br>
-							<span id="gia${index}" class="giamoi margin-top">${item.price}</span>
-							${item.oldPrice ? `<span id="giacu${index}" class="giacu margin-top">${item.oldPrice}</span>` : ''}
-							<br>
-							<span class="sao margin-top"><img src="Ảnh/saodanhgia.png" alt=""></span>
-							<span class="danhgia margin-top">${item.rating || '0 đánh giá'}</span>
-						</div>
-					</div>
-				`;
-				// Add the item HTML to the container
-				menuContainer.innerHTML += itemHTML;
-			});
-		}
-	
-		// Call the function to load menu items when the page loads
-		window.onload = loadMenu;
-	</script>	
-	<script>
-		function laygt(id1, id2, id3, id4) {
-			var ten = document.getElementById(id1).textContent;
-			var gia = document.getElementById(id2).textContent;
-			var anh = document.getElementById(id3).src;
-			var giacu = document.getElementById(id4).textContent;
-			
-			// Lưu thông tin sản phẩm vào localStorage
-			localStorage.setItem("TenSP", ten);
-			localStorage.setItem("Gia", gia);
-			localStorage.setItem("Anh", anh);
-			localStorage.setItem("GiaCu", giacu);
-	
-			// Chuyển hướng đến trang mua sản phẩm
-			window.location.href = "muasp.html";
-		}
-	</script>
-	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			const loginLink = document.getElementById('login-link');
-			const userInfo = document.getElementById('user-info');
-			const usernameSpan = document.getElementById('username');
-			const logoutButton = document.getElementById('logout-button');
-			const logoutLink = document.getElementById('logout-link');
-	  
-			// Kiểm tra trạng thái đăng nhập
-			const username = localStorage.getItem('username');
-			if (username) {
-				// Nếu đã đăng nhập
-				loginLink.style.display = 'none'; // Ẩn thẻ Đăng Nhập
-				userInfo.style.display = 'inline'; // Hiển thị phần tên người dùng
-				usernameSpan.textContent = `${username}`;
-			}
-			
-			// Xử lý đăng xuất
-			logoutLink.addEventListener('click', function () {
-				const confirmLogout = confirm("Bạn có chắc chắn muốn đăng xuất?");
-				if (confirmLogout) {
-					localStorage.removeItem('username'); // Xóa thông tin đăng nhập
-					location.reload(); // Tải lại trang để cập nhật giao diện
-				}
-			});
-		});
-	</script>
+	<script src="JS/MuaHang.js"></script>
 </body>
 </html>

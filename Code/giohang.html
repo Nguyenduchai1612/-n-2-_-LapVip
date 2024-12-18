@@ -42,13 +42,13 @@
 			<br><h2><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng của bạn có <span id="soLuongSanPham">0</span> sản phẩm</h2>
 			<button class="btn-delete-all"><i class="fa-solid fa-trash-can"></i> Xóa giỏ hàng</button>
 			<div><span style="font-size: 30px;"></span></div>
-			<hr style="border-style: 0.5px solid;width: 100%;margin:20px 0px">
+			<hr style="border-style: 0.5px solid;width: 95%; margin:20px 0px; margin-left: 25px;">
 			<div class="thongtinnhieusanpham"></div>
 		</div>
 	</div>
 	<div class="giohang">
 		<div class="ma-giam-gia">
-			<label for="discount-code">Mã giảm giá:</label>
+			<label for="discount-code">Mã giảm giá : </label>
 			<input type="text" id="discount-code" placeholder="Nhập mã giảm giá">
 			<button onclick="applyDiscount()">Áp dụng</button>
 			<div class="tongtien"></div>
@@ -71,307 +71,190 @@
 	
 		<!-- Form thông tin -->
 		<div class="form-thong-tin" id="customer-info">
-			<h3>Thông tin Khách Hàng</h3>
-			<label for="fullname">Nhập họ và tên:</label>
-			<input type="text" id="fullname" placeholder="Nhập họ và tên">
-			<label for="phone">Nhập Số điện thoại:</label>
-			<input type="tel" id="phone" placeholder="Nhập số điện thoại">
-			<label for="email">Nhập email:</label>
-			<input type="email" id="email" placeholder="Nhập email (không bắt buộc)">
-			<label for="email">Địa chỉ:</label>
-			<input type="email" id="email" placeholder="Nhập email (không bắt buộc)">
-			<label for="city">Thành phố:</label>
-			<select id="city">
-				<option>Hà Nội</option>
-				<option>TP. Hồ Chí Minh</option>
-				<option>Đà Nẵng</option>
-				<!-- Thêm các tỉnh thành khác -->
+			<h3>Thông Tin Khách Hàng</h3>
+			<div class="form-group">
+				<label for="fullname">Họ và tên :</label>
+				<input type="text" id="fullname" placeholder="Nhập họ và tên">
+			</div>
+		
+			<div class="form-group">
+				<label for="phone">Số điện thoại :</label>
+				<input type="tel" id="phone" placeholder="Nhập số điện thoại">
+			</div>
+		
+			<div class="form-group">
+				<label for="email">Email :<br>(không bắt buộc)</label>
+				<input type="email" id="email" placeholder="Nhập email">
+			</div>
+		
+			<div class="form-group">
+				<label for="address">Địa chỉ :</label>
+				<input type="text" id="address" placeholder="Nhập địa chỉ">
+			</div>
+			
+			<div class="form-group">
+				<label for="city">Thành phố :</label>
+			<select id="city" onchange="updateDistricts()">
+				<option value="">Chọn thành phố</option>
+				<option value="An Giang">An Giang</option>
+				<option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu</option>
+				<option value="Bắc Giang">Bắc Giang</option>
+				<option value="Bắc Kạn">Bắc Kạn</option>
+				<option value="Bạc Liêu">Bạc Liêu</option>
+				<option value="Bắc Ninh">Bắc Ninh</option>
+				<option value="Bến Tre">Bến Tre</option>
+				<option value="Bình Định">Bình Định</option>
+				<option value="Bình Dương">Bình Dương</option>
+				<option value="Bình Phước">Bình Phước</option>
+				<option value="Bình Thuận">Bình Thuận</option>
+				<option value="Cà Mau">Cà Mau</option>
+				<option value="Cần Thơ">Cần Thơ</option>
+				<option value="Cao Bằng">Cao Bằng</option>
+				<option value="Đà Nẵng">Đà Nẵng</option>
+				<option value="Đắk Lắk">Đắk Lắk</option>
+				<option value="Đắk Nông">Đắk Nông</option>
+				<option value="Điện Biên">Điện Biên</option>
+				<option value="Đồng Nai">Đồng Nai</option>
+				<option value="Đồng Tháp">Đồng Tháp</option>
+				<option value="Gia Lai">Gia Lai</option>
+				<option value="Hà Giang">Hà Giang</option>
+				<option value="Hà Nam">Hà Nam</option>
+				<option value="Hà Nội">Hà Nội</option>
+				<option value="Hà Tĩnh">Hà Tĩnh</option>
+				<option value="Hải Dương">Hải Dương</option>
+				<option value="Hải Phòng">Hải Phòng</option>
+				<option value="Hậu Giang">Hậu Giang</option>
+				<option value="Hòa Bình">Hòa Bình</option>
+				<option value="Hưng Yên">Hưng Yên</option>
+				<option value="Khánh Hòa">Khánh Hòa</option>
+				<option value="Kiên Giang">Kiên Giang</option>
+				<option value="Kon Tum">Kon Tum</option>
+				<option value="Lai Châu">Lai Châu</option>
+				<option value="Lâm Đồng">Lâm Đồng</option>
+				<option value="Lạng Sơn">Lạng Sơn</option>
+				<option value="Lào Cai">Lào Cai</option>
+				<option value="Long An">Long An</option>
+				<option value="Nam Định">Nam Định</option>
+				<option value="Nghệ An">Nghệ An</option>
+				<option value="Ninh Bình">Ninh Bình</option>
+				<option value="Ninh Thuận">Ninh Thuận</option>
+				<option value="Phú Thọ">Phú Thọ</option>
+				<option value="Phú Yên">Phú Yên</option>
+				<option value="Quảng Bình">Quảng Bình</option>
+				<option value="Quảng Nam">Quảng Nam</option>
+				<option value="Quảng Ngãi">Quảng Ngãi</option>
+				<option value="Quảng Ninh">Quảng Ninh</option>
+				<option value="Quảng Trị">Quảng Trị</option>
+				<option value="Sóc Trăng">Sóc Trăng</option>
+				<option value="Sơn La">Sơn La</option>
+				<option value="Tây Ninh">Tây Ninh</option>
+				<option value="Thái Bình">Thái Bình</option>
+				<option value="Thái Nguyên">Thái Nguyên</option>
+				<option value="Thanh Hóa">Thanh Hóa</option>
+				<option value="Thừa Thiên Huế">Thừa Thiên Huế</option>
+				<option value="Tiền Giang">Tiền Giang</option>
+				<option value="TP. Hồ Chí Minh">TP. Hồ Chí Minh</option>
+				<option value="Trà Vinh">Trà Vinh</option>
+				<option value="Tuyên Quang">Tuyên Quang</option>
+				<option value="Vĩnh Long">Vĩnh Long</option>
+				<option value="Vĩnh Phúc">Vĩnh Phúc</option>
+				<option value="Yên Bái">Yên Bái</option>
 			</select>
-			<label for="district">Quận huyện:</label>
-			<input type="text" id="district" placeholder="Nhập quận huyện">
+			</div>
+			
+			<div class="form-group">
+				<label for="districts">Quận/Huyện :</label>
+				<select id="districts">
+					<option value="">Chọn quận/huyện</option>
+				</select>
+			</div>
 		</div>
-	
+		
 		<div class="form-thong-tin" id="bank-info" style="display: none;">
-			<h3>Thông tin chuyển khoản</h3>
+			<h3>Thông Tin Chuyển Khoản</h3>
 			<p>Ngân hàng: TechComBank</p>
 			<p>Số tài khoản: 161204888888</p>
 			<p>Chủ tài khoản: Nguyễn Đức Hải</p>
 			<p>Ghi chú: Thanh toán đơn hàng</p>
 		</div>
-	
+		
 		<!-- Nút đặt hàng -->
 		<div class="thong-tin-khach-hang">
-			<button id="btn-dat-hang">Đặt hàng</button>
+			<button id="btn-dat-hang" onclick="placeOrder()">Đặt hàng</button>
 		</div>
-	
 	</div>
-	
-	<script>
-		// Lấy sản phẩm từ localStorage
-		var storedProducts = localStorage.getItem('products');
-		var products = storedProducts ? JSON.parse(storedProducts) : [];
-
-		// Cập nhật số lượng sản phẩm trong giỏ hàng
-		function updateProductCount() {
-			document.getElementById('soLuongSanPham').textContent = products.length;
-		}
-
-		function formatCurrency(amount, isTotal = false) {
-			const formattedAmount = amount.toLocaleString('vi-VN');
-			return isTotal ? formattedAmount + '.000.000đ' : formattedAmount;
-		}
-
-		// Hàm hiển thị giỏ hàng
-		function upload() {
-			var container = document.querySelector('.giohang .thongtinnhieusanpham');
-			container.innerHTML = ''; // Xóa nội dung hiện tại để tải lại
-			var totalAmount = 0; // Tổng tiền cho tất cả sản phẩm
-			var subtotal = 0; // Tạm tính (trước khi cộng thêm phí khác nếu cần)
-
-			// Nếu giỏ hàng trống
-			if (products.length === 0) {
-				container.innerHTML = `
-					<div class="empty-cart-message">
-						<h2>Không có sản phẩm nào trong giỏ hàng của bạn</h2>
-						<h4>Hãy quay lại và chọn cho mình sản phẩm phù hợp nhé!</h4>
-						<button><a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/TrangChu.html"><i class="fa-solid fa-backward"></i> Quay lại mua sắm</a></button>
+	<div style="height: 1px;width: 1200px;margin: auto; background-color: #808080; margin-bottom: 40px;margin-top: 40px;"></div>
+	<div class="cuoitrang">
+		<div class="item1 khochua">
+			<h2>HỆ THỐNG CỬA HÀNG</h2><br>
+			<ul>
+				<h3>HÀ NỘI</h3>
+				<li>294 Thái Hà, Trung Liệt, Đống Đa, Hà Nội</li><br>
+			</ul>
+			<ul>
+				<h3>HỒ CHÍ MINH</h3>
+				<li>284/7/2 Lý Thường Kiệt, Phường 14, Quận 10, TP. HCM</li><br>
+				<li>94 Đ. Hoàng Diệu 2, Phường Linh Chiểu, Thủ Đức, TP. HCM</li><br>
+			</ul>
+			<ul>
+				<h3>CẦN THƠ</h3>
+				<li>131 Lý Tự Trọng, Q. Ninh Kiều, TP Cần Thơ</li>
+			</ul>
+		</div>
+		<div class="item2 khochua">
+			<h2>HỆ THỐNG LAPVIP</h2>
+			<ul>
+				<li>Giới thiệu</li>
+				<li>Liên hệ</li>
+				<li>Thư mời hợp tác</li>
+				<li>Tuyển dụng lapvip</li>
+				<li>Mua giá sỉ</li>
+				<li>Bán hàng cùng Lapvip</li>
+				<li>Bán hàng doanh nghiệp</li>
+			</ul>
+		</div>
+		<div class="item2 khochua">
+			<h2>CHĂM SÓC KHÁCH HÀNG</h2><br>
+			<ul style="margin-top: 0px;">
+				<li>Chính sách bảo hành</li>
+				<li>Chính sách đổi trả</li>
+				<li>Chính sách vận chuyển</li>
+				<li>Chính sách thanh toán</li>
+				<li>Hướng dẫn mua online</li>
+				<li>Chính sách trả góp</li>
+				<li>Chính sách bảo mật</li>
+				<li>Câu hỏi thường gặp</li>
+			</ul>
+		</div>
+		<div class="item3 khochua">
+			<h2>KẾT NỐI VỚI CHÚNG TÔI</h2><br><br>
+			<div class="khoi1">
+				<div class="khoiketnoi"><img src="https://lapvip.vn/html-viettech/images/facebook.png" alt="">
+					<div> <span>Fanpage của Lapvip</span> <a href="https://web.facebook.com/profile.php?id=100042335855695">Facebook</a></div>
+				</div>
+				<div class="khoiketnoi"><img src="https://lapvip.vn/html-viettech/images/youtube.png" alt="">
+					<div> <span>Youtube của Lapvip</span> <a href="">Youtube/LapVip</a></div>
+				</div>
+				<div class="khoiketnoi"><img src="https://lapvip.vn/html-viettech/images/zalo.png" alt="">
+					<div style="margin-right: 60px;"> <span>Lapvip hotline Zalo</span><br> <a href="">0374337432</a>
 					</div>
-				`;
-				document.querySelector('.tongtien').innerHTML = '';
-				updateProductCount();
-				return;
-			}
+				</div>
+			</div>
+			<div class="khoi1" style="padding-top: 50px;">
+				Điện thoại di động <br>
+				0374.33.74.32
+			</div>
+			<!-- <div class="khochua">
+				<h2>PHƯƠNG THỨC THANH TOÁN:</h2>
+				<div>
 
-			// Duyệt qua các sản phẩm trong giỏ hàng
-			products.forEach((product, index) => {
-				var productRow = document.createElement('div');
-				productRow.classList.add('sanpham1');
+				</div>
+				<div>
 
-				// Ảnh sản phẩm
-				var img = document.createElement('img');
-				img.src = product.pic;
-				img.style.width = '120px';
-				img.style.height = '120px';
-
-				// Tên sản phẩm
-				var productName = document.createElement('div');
-				productName.classList.add('noidungsp');
-				productName.textContent = product.name;
-
-				// Xóa
-				var deleteButton = document.createElement('button');
-				deleteButton.classList.add('btn-delete');
-				deleteButton.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
-				deleteButton.onclick = () => deleteProduct(index);
-
-				// Giá và số lượng sản phẩm
-				var priceContainer = document.createElement('div');
-				priceContainer.classList.add('price-container');
-
-				// Giá cũ (nếu có)
-				if (product.oldPrice) {
-					var oldPrice = document.createElement('div');
-					oldPrice.textContent = `Giá cũ: ${formatCurrency(product.oldPrice)}`;
-					oldPrice.style.textDecoration = 'line-through';
-					oldPrice.style.color = 'gray';
-					priceContainer.appendChild(oldPrice);
-				}
-
-				// Giá mới
-				var price = document.createElement('div');
-				price.textContent = `Giá: ${formatCurrency(product.price)}`;
-				priceContainer.appendChild(price);
-
-				// Số lượng
-				var quantityDiv = document.createElement('div');
-				quantityDiv.classList.add('quantity-container');
-
-				var decreaseButton = document.createElement('button');
-				decreaseButton.textContent = '-';
-				decreaseButton.classList.add('quantity-btn');
-				decreaseButton.onclick = () => updateQuantity(index, product.quantity - 1);
-
-				var quantityInput = document.createElement('input');
-				quantityInput.type = 'text'; // Đặt lại thành text để loại bỏ mũi tên lên xuống
-				quantityInput.value = product.quantity || 1;
-				quantityInput.classList.add('quantity-input');
-				quantityInput.readOnly = true; // Không cho phép người dùng sửa trực tiếp giá trị
-
-				var increaseButton = document.createElement('button');
-				increaseButton.textContent = '+';
-				increaseButton.classList.add('quantity-btn');
-				increaseButton.onclick = () => updateQuantity(index, product.quantity + 1);
-
-				quantityDiv.appendChild(decreaseButton);
-				quantityDiv.appendChild(quantityInput);
-				quantityDiv.appendChild(increaseButton);
-				priceContainer.appendChild(quantityDiv);
-
-				// Tính toán và hiển thị tổng tiền cho sản phẩm này
-				var quantity = product.quantity || 1; // Gán số lượng mặc định nếu không tồn tại
-				var productTotal = quantity * parseFloat(product.price.replace(/[^0-9.-]+/g, '')); // Chuyển đổi giá thành kiểu số
-				var totalDiv = document.createElement('div');
-				totalDiv.classList.add('thanhtien');
-				totalDiv.textContent = 'Thành tiền: ' + formatCurrency(productTotal, true); // Thêm "000.000đ" vào thành tiền
-				priceContainer.appendChild(totalDiv);
-
-				// Cập nhật tổng tiền
-				subtotal += parseFloat(product.price.replace(/[^0-9.-]+/g, '')) * (product.quantity || 1); // Đảm bảo tính toán đúng
-				totalAmount += productTotal;
-
-				productRow.appendChild(deleteButton);
-				productRow.appendChild(img);
-				productRow.appendChild(productName);
-				productRow.appendChild(priceContainer);
-
-				container.appendChild(productRow);
-			});
-
-			// Hiển thị tổng tiền và tạm tính
-			document.querySelector('.tongtien').innerHTML = `
-				<div>Tạm tính: ${formatCurrency(subtotal, true)}</div> <!-- Thêm "000.000đ" vào Tạm tính -->
-				<div><strong>Tổng tiền: ${formatCurrency(totalAmount, true)}</strong></div> <!-- Thêm "000.000đ" vào Tổng tiền -->
-			`;
-			updateProductCount();
-		}
-
-		function updateQuantity(index, newQuantity) {
-			// Kiểm tra giá trị mới hợp lệ
-			if (newQuantity >= 1) {
-				products[index].quantity = parseInt(newQuantity); // Cập nhật số lượng
-				localStorage.setItem('products', JSON.stringify(products)); // Lưu lại vào localStorage
-				upload(); // Cập nhật lại giỏ hàng
-			}
-		}
-
-		// Xóa sản phẩm khỏi giỏ hàng
-		function deleteProduct(index) {
-			if (confirm("Bạn có chắc chắn muốn xóa sản phẩm này?")) {
-				products.splice(index, 1);
-				localStorage.setItem('products', JSON.stringify(products));
-				upload();
-			}
-		}
-
-		// Xóa toàn bộ giỏ hàng
-		document.querySelector('.btn-delete-all').onclick = function () {
-			if (confirm("Bạn có chắc chắn muốn xóa toàn bộ giỏ hàng không?")) {
-				products = [];
-				localStorage.removeItem('products');
-				upload();
-				alert("Giỏ hàng đã được xóa!");
-			}
-		};
-		upload();
-	</script>
-	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			const loginLink = document.getElementById('login-link');
-			const userInfo = document.getElementById('user-info');
-			const usernameSpan = document.getElementById('username');
-			const logoutButton = document.getElementById('logout-button');
-			const logoutLink = document.getElementById('logout-link');
-	  
-			// Kiểm tra trạng thái đăng nhập
-			const username = localStorage.getItem('username');
-			if (username) {
-				// Nếu đã đăng nhập
-				loginLink.style.display = 'none'; // Ẩn thẻ Đăng Nhập
-				userInfo.style.display = 'inline'; // Hiển thị phần tên người dùng
-				usernameSpan.textContent = `${username}`;
-			}
-			
-			// Xử lý đăng xuất
-			logoutLink.addEventListener('click', function () {
-				const confirmLogout = confirm("Bạn có chắc chắn muốn đăng xuất?");
-				if (confirmLogout) {
-					localStorage.removeItem('username'); // Xóa thông tin đăng nhập
-					location.reload(); // Tải lại trang để cập nhật giao diện
-				}
-			});
-		});
-	</script>
-	<script>
-		// Hàm áp dụng mã giảm giá
-		function applyDiscount() {
-			var discountCode = document.getElementById("discount-code").value;
-			if (discountCode === "DISCOUNT123") { // Giả sử mã giảm giá là DISCOUNT123
-				alert("Mã giảm giá đã được áp dụng!");
-				// Bạn có thể thực hiện thêm logic xử lý giảm giá ở đây
-			} else {
-				alert("Mã giảm giá không hợp lệ.");
-			}
-		}
-	
-		// Cập nhật các quận huyện theo thành phố
-		document.getElementById("city").addEventListener("change", function() {
-			var city = this.value;
-			var districtSelect = document.getElementById("district");
-			
-			districtSelect.innerHTML = "<option value=''>Chọn quận/huyện</option>"; // Reset quận huyện
-			
-			if (city === "Hanoi") {
-				districtSelect.innerHTML += "<option value='CauGiay'>Cầu Giấy</option><option value='HoanKiem'>Hoàn Kiếm</option>";
-			} else if (city === "HoChiMinh") {
-				districtSelect.innerHTML += "<option value='District1'>Quận 1</option><option value='District3'>Quận 3</option>";
-			} else if (city === "DaNang") {
-				districtSelect.innerHTML += "<option value='HaiChau'>Hải Châu</option><option value='LienChieu'>Liên Chiểu</option>";
-			}
-		});
-	
-		// Hàm xử lý đặt hàng
-		function placeOrder() {
-			var fullName = document.getElementById("full-name").value;
-			var phoneNumber = document.getElementById("phone-number").value;
-			var email = document.getElementById("email").value;
-			var city = document.getElementById("city").value;
-			var district = document.getElementById("district").value;
-			var paymentMethod = document.querySelector('input[name="payment-method"]:checked');
-	
-			if (!fullName || !phoneNumber || !city || !district || !paymentMethod) {
-				alert("Vui lòng điền đầy đủ thông tin.");
-				return;
-			}
-	
-			// Xử lý đơn hàng (bạn có thể lưu thông tin đơn hàng vào cơ sở dữ liệu hoặc gửi qua email, v.v.)
-			alert("Đặt hàng thành công!");
-		}
-		// Lấy các phần tử HTML
-		const radioButtons = document.querySelectorAll('input[name="payment-method"]');
-		const cardPaymentSection = document.querySelector('.card-payment-section');
-		const customerInfoSection = document.querySelector('.customer-info-section');
-
-		document.addEventListener("DOMContentLoaded", function () {
-			const codRadio = document.getElementById("cod");
-			const bankTransferRadio = document.getElementById("bank-transfer");
-			const inStoreRadio = document.getElementById("in-store");
-			const customerInfo = document.getElementById("customer-info");
-			const bankInfo = document.getElementById("bank-info");
-
-			// Mặc định chọn Thanh toán khi nhận hàng
-			codRadio.checked = true;
-			customerInfo.style.display = "block";
-			bankInfo.style.display = "none";
-
-			// Lắng nghe sự kiện khi thay đổi phương thức thanh toán
-			codRadio.addEventListener("click", function () {
-				customerInfo.style.display = "block";
-				bankInfo.style.display = "none";
-			});
-
-			bankTransferRadio.addEventListener("click", function () {
-				customerInfo.style.display = "none";
-				bankInfo.style.display = "block";
-			});
-
-			inStoreRadio.addEventListener("click", function () {
-				customerInfo.style.display = "block";
-				bankInfo.style.display = "none";
-			});
-		});
-
-
-	</script>
+				</div>
+			</div> -->
+		</div>
+	</div>
+	<script src="JS/GioHang.js"></script>
 </body>
-
 </html>

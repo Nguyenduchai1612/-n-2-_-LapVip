@@ -9,172 +9,76 @@
 	<script src="https://kit.fontawesome.com/faa982bf4c.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <body>
-        <div class="header">
-            <div class="header_inner">
-                <!-- <div class="logo"> -->
-                <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/TrangChu.html"><img src="Ảnh/LapVip.png" alt="LAPVIP"></a>
-    
-                <div class="text" >
-                    <input type="text" class="form-control" id="search_home"
-                        placeholder="Nhập tên máy tính, phụ kiện...cần tìm...">
-                        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+    <div class="header_inner">
+        <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/QuanTri.html"><img src="Ảnh/LapVip.png" alt="LAPVIP" class="logo-link"></a>
+        
+        <div class="text">
+            <input type="text" class="form-control" id="search_home" placeholder="Nhập tên máy tính, phụ kiện...cần tìm...">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        
+        <div class="text2">
+            <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/dangnhap.html" id="login-link">
+                <i class="fa-solid fa-house-laptop"></i><br>Đăng Nhập
+            </a>
+            <span id="user-info" style="display: none;">
+                <span id="username">John Doe</span>
+                <div id="logout-button">
+                    <a href="#" id="logout-link">Đăng Xuất</a>
                 </div>
-                <div class="text2">
-                    <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/dangnhap.html"><i class="fa-solid fa-laptop"></i><br>Sản phẩm</a>
-                    <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/nhanvien.html"><i class="fa-solid fa-user-group"></i><br>Nhân viên</a>
-                    <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/thongke.html"><i class="fa-solid fa-chart-line"></i><br>Thống kê</a>
-                </div>
+            </span>
+            <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/dangky.html"><i class="fa-regular fa-newspaper"></i><br>Tin Tức</a>
+            <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/giohang.html"><i class="fa-solid fa-message"></i><br>Phản Hồi</a>
+        </div>
+    </div>
+    <main class="container">
+        <section class="employee-list">
+            <h2>Danh Sách Nhân Viên</h2>
+            <button class="btn-add" onclick="openAddEmployeeForm()">Thêm Nhân Viên Mới</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Họ Tên</th>
+                        <th>Chức Vụ</th>
+                        <th>Email</th>
+                        <th>Số Điện Thoại</th>
+                        <th>Hành Động</th>
+                    </tr>
+                </thead>
+                <tbody id="employee-table">
+                    <!-- Danh sách nhân viên sẽ được hiển thị tại đây -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Form thêm/sửa nhân viên -->
+        <div class="form-overlay" id="form-overlay">
+            <div class="employee-form">
+                <h3>Thêm/Sửa Nhân Viên</h3>
+                <label for="employee-id">ID:</label>
+                <input type="text" id="employee-id" disabled>
+                
+                <label for="employee-name">Họ Tên:</label>
+                <input type="text" id="employee-name">
+                
+                <label for="employee-position">Chức Vụ:</label>
+                <input type="text" id="employee-position">
+                
+                <label for="employee-email">Email:</label>
+                <input type="email" id="employee-email">
+                
+                <label for="employee-phone">Số Điện Thoại:</label>
+                <input type="text" id="employee-phone">
+                
+                <button class="btn-save" onclick="saveEmployee()">Lưu</button>
+                <button class="btn-cancel" onclick="closeForm()">Hủy</button>
             </div>
         </div>
-    
-        <!-- Container -->
-        <main class="container">
-            <section class="employee-list">
-                <h2>Danh Sách Nhân Viên</h2>
-                <button class="btn-add" onclick="openAddEmployeeForm()">Thêm Nhân Viên Mới</button>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Họ Tên</th>
-                            <th>Chức Vụ</th>
-                            <th>Email</th>
-                            <th>Số Điện Thoại</th>
-                            <th>Hành Động</th>
-                        </tr>
-                    </thead>
-                    <tbody id="employee-table">
-                        <!-- Danh sách nhân viên sẽ được hiển thị tại đây -->
-                    </tbody>
-                </table>
-            </section>
-    
-            <!-- Form thêm/sửa nhân viên -->
-            <div class="form-overlay" id="form-overlay">
-                <div class="employee-form">
-                    <h3>Thêm/Sửa Nhân Viên</h3>
-                    <label for="employee-id">ID:</label>
-                    <input type="text" id="employee-id" disabled>
-                    
-                    <label for="employee-name">Họ Tên:</label>
-                    <input type="text" id="employee-name">
-                    
-                    <label for="employee-position">Chức Vụ:</label>
-                    <input type="text" id="employee-position">
-                    
-                    <label for="employee-email">Email:</label>
-                    <input type="email" id="employee-email">
-                    
-                    <label for="employee-phone">Số Điện Thoại:</label>
-                    <input type="text" id="employee-phone">
-                    
-                    <button class="btn-save" onclick="saveEmployee()">Lưu</button>
-                    <button class="btn-cancel" onclick="closeForm()">Hủy</button>
-                </div>
-            </div>
-        </main>
-    
-        <div style="height: 1px;width: 1200px;margin: auto; background-color: #808080; margin-bottom: 40px;"></div>
-    
-        <script src="NhanVien.js"></script>
-        <script>
-        // Lấy danh sách nhân viên từ localStorage (hoặc khởi tạo nếu chưa có)
-        let employees = JSON.parse(localStorage.getItem("employees")) || [];
+    </main>
 
-        // Hiển thị danh sách nhân viên
-        function renderEmployeeTable() {
-            const table = document.getElementById("employee-table");
-            table.innerHTML = employees.map((employee, index) => `
-                <tr>
-                    <td>${employee.id}</td>
-                    <td>${employee.name}</td>
-                    <td>${employee.position}</td>
-                    <td>${employee.email}</td>
-                    <td>${employee.phone}</td>
-                    <td>
-                        <button class="btn-edit" onclick="editEmployee(${index})">Sửa</button>
-                        <button class="btn-delete" onclick="deleteEmployee(${index})">Xóa</button>
-                    </td>
-                </tr>
-            `).join("");
-        }
+    <div style="height: 1px;width: 1200px;margin: auto; background-color: #808080; margin-bottom: 40px;"></div>
 
-        // Mở form thêm nhân viên mới
-        function openAddEmployeeForm() {
-            document.getElementById("form-overlay").style.display = "flex";
-            clearForm();
-        }
-
-        // Xóa nhân viên
-        function deleteEmployee(index) {
-            if (confirm("Bạn có chắc chắn muốn xóa nhân viên này?")) {
-                employees.splice(index, 1);
-                saveEmployeesToLocalStorage(); // Cập nhật lại vào localStorage
-                renderEmployeeTable();
-            }
-        }
-
-        // Hiển thị thông tin nhân viên để chỉnh sửa
-        function editEmployee(index) {
-            const employee = employees[index];
-            document.getElementById("form-overlay").style.display = "flex";
-            document.getElementById("employee-id").value = employee.id;
-            document.getElementById("employee-name").value = employee.name;
-            document.getElementById("employee-position").value = employee.position;
-            document.getElementById("employee-email").value = employee.email;
-            document.getElementById("employee-phone").value = employee.phone;
-        }
-
-        // Lưu thông tin nhân viên (thêm hoặc chỉnh sửa)
-        function saveEmployee() {
-            const id = document.getElementById("employee-id").value || Date.now();
-            const name = document.getElementById("employee-name").value.trim();
-            const position = document.getElementById("employee-position").value.trim();
-            const email = document.getElementById("employee-email").value.trim();
-            const phone = document.getElementById("employee-phone").value.trim();
-
-            if (!name || !position || !email || !phone) {
-                alert("Vui lòng điền đầy đủ thông tin.");
-                return;
-            }
-
-            // Kiểm tra nếu ID tồn tại, nghĩa là đang chỉnh sửa
-            const existingIndex = employees.findIndex(emp => emp.id == id);
-            if (existingIndex >= 0) {
-                employees[existingIndex] = { id, name, position, email, phone };
-            } else {
-                employees.push({ id, name, position, email, phone });
-            }
-
-            saveEmployeesToLocalStorage(); // Lưu danh sách nhân viên vào localStorage
-            closeForm();
-            renderEmployeeTable();
-        }
-
-        // Lưu danh sách nhân viên vào localStorage
-        function saveEmployeesToLocalStorage() {
-            localStorage.setItem("employees", JSON.stringify(employees));
-        }
-
-        // Xóa dữ liệu form
-        function clearForm() {
-            document.getElementById("employee-id").value = "";
-            document.getElementById("employee-name").value = "";
-            document.getElementById("employee-position").value = "";
-            document.getElementById("employee-email").value = "";
-            document.getElementById("employee-phone").value = "";
-        }
-
-        // Đóng form
-        function closeForm() {
-            document.getElementById("form-overlay").style.display = "none";
-        }
-
-        // Khi trang được tải, hiển thị danh sách nhân viên
-        document.addEventListener("DOMContentLoaded", renderEmployeeTable);
-
-        </script>
-    </body>
+    <script src="JS/NhanVien.js"></script>
 </body>
 </html>

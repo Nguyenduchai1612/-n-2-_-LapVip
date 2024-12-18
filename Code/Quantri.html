@@ -7,642 +7,71 @@
     <title>ĐỒ ÁN _ LapVip/Code/QuanTri</title>
     <link rel="stylesheet" href="Quantri.css">
 	<script src="https://kit.fontawesome.com/faa982bf4c.js" crossorigin="anonymous"></script>
-</head>
-<body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <body>
-        <div class="header">
-            <div class="header_inner">
-                <!-- <div class="logo"> -->
-                <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/TrangChu.html"><img src="Ảnh/LapVip.png" alt="LAPVIP"></a>
-    
-                <div class="text" >
-                    <input type="text" class="form-control" id="search_home"
-                        placeholder="Nhập tên máy tính, phụ kiện...cần tìm...">
-                        <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                </div>
-                <div class="text2">
-                    <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/sanpham.html"><i class="fa-solid fa-laptop"></i><br>Sản phẩm</a>
-                    <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/nhanvien.html"><i class="fa-solid fa-user-group"></i><br>Nhân viên</a>
-                    <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/thongke.html"><i class="fa-solid fa-chart-line"></i><br>Thống kê</a>
-                </div>
+        <div class="header_inner">
+            <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/QuanTri.html"><img src="Ảnh/LapVip.png" alt="LAPVIP" class="logo-link"></a>
+            
+            <div class="text">
+                <input type="text" class="form-control" id="search_home" placeholder="Nhập tên máy tính, phụ kiện...cần tìm...">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
-            <div class="header__inner">
-                <ul class="menu">
-                    <li class="menu_items">
-                        SẢN PHẨM
-                        <div class="menu_child">
-                            <div class="menu_child_item">
-                                <h4>Macbook Pro</h4>
-                                <ul class="menu_child_list" style="display: flex;">
-                                    <div>
-                                        <a href=""><li>Macbook Pro 2019</li></a>
-                                        <a href=""><li>Macbook Pro 2020</li></a>
-                                        <a href=""><li>Macbook Pro 13 M1</li></a>
-                                        <a href=""><li>Macbook Pro 14 M1</li></a>
-                                    </div>
-                                </ul>
-                            </div>
-                            <div class="menu_child_item">
-                                <h4>Macbook Air</h4>
-                                <ul class="menu_child_list" style="display: flex;">
-                                    <div>
-                                        <li>Macbook Air 2019</li>
-                                        <li>Macbook Air 2020</li>
-                                    </div>
-    
-                                </ul>
-                            </div>
-                            <div class="menu_child_item">
-                                <h4>iMac - Mac Pro - Mini</h4>
-                                <ul class="menu_child_list" style="display: flex;">
-                                    <div>
-                                        <li>iMac 2020</li>
-                                        <li>iMac M1</li>
-                                        <li>iMac Pro</li>
-                                    </div>
-                                    <div>
-                                        <li>Mac Mini</li>
-                                        <li>Mac Pro</li>
-                                    </div>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="menu_items">
-                        NHÂN VIÊN
-                        <div class="menu_child">
-                            <div class="menu_child_item">
-                                <h4>SURFACE PRO</h4>
-                                <ul class="menu_child_list" style="display: flex;">
-                                    <div>
-                                        <li>SURFACE PRO 10</li>
-                                        <li>SURFACE PRO 9</li>
-                                    </div>
-                                    <div>
-                                        <li>SURFACE PRO 8</li>
-                                        <li>SURFACE PRO X</li>
-                                    </div>
-                                </ul>
-                                <h4>SURFACE DOU</h4>
-                                <ul class="menu_child_list" style="display: flex;">
-                                    <div>
-                                        <li>SURFACE DOU 2</li>
-                                    </div>
-                                </ul>
-                                <h4>SURFACE LAPTOP STUDIO</h4>
-                                <ul class="menu_child_list" style="display: flex;">
-                                    <div>
-                                        <li>SURFACE LAPTOP STUDIO 1</li>
-                                    </div>
-                                    <div>
-                                        <li>SURFACE LAPTOP STUDIO 2</li>
-                                    </div>
-                                </ul>
-                            </div>
-                            <div class="menu_child_item">
-                                <h4>SURFACE LAPTOP</h4>
-                                <ul class="menu_child_list">
-                                    <li>SURFACE LAPTOP 3</li>
-                                    <li>SURFACE LAPTOP 4</li>
-                                    <li>SURFACE LAPTOP 5</li>
-                                    <li>SURFACE LAPTOP 6</li>
-                                </ul>
-                            </div>
-                            <div class="menu_child_item">
-                                <h4>SURBOOK</h4>
-                                <ul class="menu_child_list">
-                                    <li>SURBOOK 2</li>
-                                    <li>SURBOOK 3</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    </li>
-                    <li class="menu_items">
-                        THỐNG KÊ
-                        <div class="menu_child">
-                            <div class="menu_child_item">
-                                <h4>Mục 1</h4>
-                                <ul class="menu_child_list">
-                                    <li>New</li>
-                                    <li>New</li>
-                                    <li>New</li>
-                                    <li>New</li>
-                                </ul>
-                            </div>
-                            <div class="menu_child_item">
-                                <h4>Mục 2</h4>
-                                <ul class="menu_child_list">
-                                    <li>New</li>
-                                    <li>New</li>
-                                    <li>New</li>
-                                    <li>New</li>
-                                </ul>
-                            </div>
-                            <div class="menu_child_item">
-                                <h4>Mục 3</h4>
-                                <ul class="menu_child_list">
-                                    <li>New</li>
-                                    <li>New</li>
-                                    <li>New</li>
-                                    <li>New</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="menu_items">
-                        HÓA ĐƠN
-                        <div class="menu_child">
-                            <div class="menu_child_item">
-                                <h4>Mục 1</h4>
-                                <ul class="menu_child_list">
-                                    <li>New</li>
-                                    <li>New</li>
-                                    <li>New</li>
-                                    <li>New</li>
-                                </ul>
-                            </div>
-                            <div class="menu_child_item">
-                                <h4>Mục 2</h4>
-                                <ul class="menu_child_list">
-                                    <li>New</li>
-                                    <li>New</li>
-                                    <li>New</li>
-                                    <li>New</li>
-                                </ul>
-                            </div>
-                            <div class="menu_child_item">
-                                <h4>Mục 3</h4>
-                                <ul class="menu_child_list">
-                                    <li>New</li>
-                                    <li>New</li>
-                                    <li>New</li>
-                                    <li>New</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    </li>
-                    <li class="menu_items">
-                        KHÁCH HÀNG
-                        <div class="menu_child">
-                            <div class="menu_child_item">
-                                <h4>Mục 1</h4>
-                                <ul class="menu_child_list">
-                                    <li>New</li>
-                                    <li>New</li>
-                                    <li>New</li>
-                                    <li>New</li>
-                                </ul>
-                            </div>
-                            <div class="menu_child_item">
-                                <h4>Mục 2</h4>
-                                <ul class="menu_child_list">
-                                    <li>New</li>
-                                    <li>New</li>
-                                    <li>New</li>
-                                    <li>New</li>
-                                </ul>
-                            </div>
-                            <div class="menu_child_item">
-                                <h4>Mục 3</h4>
-                                <ul class="menu_child_list">
-                                    <li>New</li>
-                                    <li>New</li>
-                                    <li>New</li>
-                                    <li>New</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <li class="menu_items">
-                            ĐÁNH GIÁ
-                            <div class="menu_child">
-                                <div class="menu_child_item">
-                                    <h4>Mục 1</h4>
-                                    <ul class="menu_child_list">
-                                        <li>New</li>
-                                        <li>New</li>
-                                        <li>New</li>
-                                        <li>New</li>
-                                    </ul>
-                                </div>
-                                <div class="menu_child_item">
-                                    <h4>Mục 2</h4>
-                                    <ul class="menu_child_list">
-                                        <li>New</li>
-                                        <li>New</li>
-                                        <li>New</li>
-                                        <li>New</li>
-                                    </ul>
-                                </div>
-                                <div class="menu_child_item">
-                                    <h4>Mục 3</h4>
-                                    <ul class="menu_child_list">
-                                        <li>New</li>
-                                        <li>New</li>
-                                        <li>New</li>
-                                        <li>New</li>
-                                    </ul>
-                                </div>
-                            </div>
-                    </li>
-                </li>
-            </ul>
+            
+            <div class="text2">
+                <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/dangnhap.html" id="login-link">
+                    <i class="fa-solid fa-house-laptop"></i><br>Đăng Nhập
+                </a>
+                <span id="user-info" style="display: none;">
+                    <span id="username">John Doe</span>
+                    <div id="logout-button">
+                        <a href="#" id="logout-link">Đăng Xuất</a>
+                    </div>
+                </span>
+                <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/dangky.html"><i class="fa-regular fa-newspaper"></i><br>Tin Tức</a>
+                <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/giohang.html"><i class="fa-solid fa-message"></i><br>Phản Hồi</a>
             </div>
         </div>
-    
         <div class="Information">
-            <div class="slide">
-                <img src="Ảnh/xa-kho-gia-tot.png" alt="" id="selected-image">
-                <div class="image-container">
-                    <span class="image-selector" onclick="selectImage(0)">Xả Kho Giá Tốt</span>
-                    <span class="image-selector" onclick="selectImage(1)">Asus ROG Strix G18 G814 (2023)</span>
-                    <span class="image-selector" onclick="selectImage(2)">Lenovo Legion 5 Pro</span>
-                    <span class="image-selector" onclick="selectImage(3)">Razer Blade 15 (2022)</span>
+            <div class="sidebar">
+                <h2>LapVip Admin</h2>
+                <div class="menu">
+                    <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/sanpham.html">
+                        <i class="fa-solid fa-laptop"></i> Sản phẩm
+                    </a>
+                    <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/nhanvien.html">
+                        <i class="fa-solid fa-user-group"></i> Nhân viên
+                    </a>
+                    <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/thongke.html">
+                        <i class="fa-solid fa-chart-line"></i> Thống kê
+                    </a>
+                    <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/donhang.html">
+                        <i class="fa-solid fa-file-invoice"></i> Đơn hàng
+                    </a>
                 </div>
             </div>
-            <div class="inf">
-                <div class="content_top"><img src="Ảnh/banner-phu1.png" alt=""></div>
-                <div class="content_top"><img src="Ảnh/banner-phu2.png" alt=""></div>
-                <div class="content_bottom">
-                    <div class="tieude">
-                        <span>TIN CÔNG NGHỆ NỔI BẬT</span>
-                        <a href="">Xem tất cả</a>
-                    </div>
-                    <div class="thongtin">
-                        <img src="Ảnh/5-nguyen-nhan-va-cach-khac-phuc-may-surface-bi-do.jpg" alt="">
-                        <a href=""><span>5 nguyên nhân và cách khắc phục máy Surface bị đơ</span></a>
-                    </div>
-                    <div class="thongtin">
-                        <img src="Ảnh/bat-mi-cach-su-dung-surface-lau-hon-khi-pin-yeu.jpg" alt="">
-                        <a href=""><span>Bật mí cách sử dụng Surface lâu hơn khi pin yếu</span></a>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="danhsachcongcuto"> -->
-            <ul class="danhsachcongcu">
-                <li class="congcu">
-                    <img src="Ảnh/home-intro-1.png" alt="">
-                    <span>Giao hàng<br>
-                        toàn quốc
-                    </span>
-                </li>
-                <li class="congcu">
-                    <img src="Ảnh/home-intro-2.png" alt="">
-                    <span>
-                        Mua hàng<br>
-                        từ xa
-                    </span>
-                </li>
-                <li class="congcu">
-                    <img src="Ảnh/home-intro-3.png" alt="">
-                    <span>
-                        Đổi trả hàng trong<br>
-                        30 ngày
-                    </span>
-                </li>
-                <li class="congcu">
-                    <img src="Ảnh/home-intro-4.png" alt="">
-                    <span>
-                        Thanh toán linh hoạt<br>tiền mặt,<br>
-                        Visa/master, trả góp
-                    </span>
-                </li>
-                <li class="congcu">
-                    <img src="Ảnh/home-intro-5.png" alt="">
-                    <span>
-                        Hỗ trợ suốt thời gian<br> sử dụng<br>
-                        Hotline:<br> 0852.66.67.68
-                    </span>
-                </li>
-            </ul>
-            <!-- </div>		 -->
-        </div>
-        <div class="danhsachmaytinh">
-            <ul>
-                <li>
-                    <a href="">
-                        <div class="maytinh"><img
-                                src="https://lapvip.vn/upload/category/thumb_90x0/surface-image-show-home-1624951565.jpg"
-                                alt=""></div>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <div class="maytinh"><img
-                                src="https://lapvip.vn/upload/category/thumb_90x0/laptop-moi-image-show-home-1624951313.jpg"
-                                alt=""></div>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <div class="maytinh"><img
-                                src="https://lapvip.vn/upload/category/thumb_90x0/macbook-image-show-home-1624856863.png"
-                                alt=""></div>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <div class="maytinh"><img
-                                src="https://lapvip.vn/upload/category/thumb_90x0/laptop-moi-image-show-home-1624951313.jpg"
-                                alt=""></div>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <div class="maytinh"><img
-                                src="https://lapvip.vn/upload/category/thumb_90x0/laptop-moi-image-show-home-1624951313.jpg"
-                                alt=""></div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="khuyenmai">
-            <div class="tieudebanhang">KHUYẾN MẠI HOT</div>
-            <div class="danhsachkhuyenmai">
-    
-                <div class="thanhphan">
-                    <a href="#" onclick="laygt('ten', 'gia', 'anh', 'giacu'); return false;">
-                        <div class="hinhanh">
-                            <img id="anh" class="anhmauhang" src="Ảnh/maytinh1.jpg" alt="">
-                        </div>
-                    </a>
-                
-                    <div class="thongtingiaban">
-                        <span class="giamgia">Giảm 4.900.000 Đ</span>
-                        <h4 id="ten" class="ten">Dell Precision 7770 Gen 12th</h4>
-                        <span class="caidat margin-top">(Tùy chọn 4 cấu hình)</span><br>
-                        <span id="gia" class="giamoi margin-top">55.000.000 đ</span>
-                        <span id="giacu" class="giacu margin-top">59.900.000 đ</span><br>
-                        <span class="sao margin-top"><img src="Ảnh/saodanhgia.png" alt=""></span>
-                        <span class="danhgia margin-top">30 đánh giá</span>
-                    </div>
-                </div>
-                <div class="thanhphan">
-                    <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/muasp.html" onclick="laygt('ten1','gia1','anh1','giacu1')">
-                        <div class="hinhanh">
-                            <img id="anh1" class="anhmauhang" src="Ảnh/maytinh2.jpg" alt="">
-                        </div>
-                    </a>
-    
-                    <div class="thongtingiaban">
-                        <span class="giamgia">Giảm 3.300.000 Đ</span>
-                        <h4 id="ten1" class="ten">Dell Precision 3571 Gen 12th</h4>
-                        <span class="caidat margin-top">
-                            (Tùy chọn 3 cấu hình)</span><br>
-                        <span id="gia1" class="giamoi margin-top">40.000.000 đ</span><span id="giacu1"
-                            class="giacu margin-top">43.300.000 đ</span> <br>
-                        <span class="sao margin-top"><img src="Ảnh/saodanhgia.png" alt=""></span><span
-                            class="danhgia margin-top">50 đánh giá</span>
-                    </div>
-                </div>
-                <div class="thanhphan">
-                    <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/muasp.html" onclick="laygt('ten2','gia2','anh2','giacu2')">
-                        <div class="hinhanh">
-                            <img id="anh2" class="anhmauhang" src="Ảnh/maytinh3.jpg" alt="">
-                        </div>
-                    </a>
-                    
-                    <div class="thongtingiaban">
-                        <span class="giamgia">Giảm 6.000.000 Đ</span>
-                        <h4 id="ten2" class="ten">Lenovo Legion 5 Pro 16IAH7H (2022)</h4>
-                        <span class="caidat margin-top">
-                            (Tùy chọn 5 cấu hình)</span><br>
-                        <span id="gia2" class="giamoi margin-top">37.000.000 đ</span><span id="giacu2"
-                            class="giacu margin-top">43.000.000 đ</span> <br>
-                        <span class="sao margin-top"><img src="Ảnh/saodanhgia.png" alt=""></span><span
-                            class="danhgia margin-top">15 đánh giá</span>
-                    </div>
-                </div>
-                <div class="thanhphan">
-                    <a href="http://127.0.0.1:3000/ĐỒ ÁN _ LapVip/Code/muasp.html" onclick="laygt('ten3','gia3','anh3','giacu3')">
-                        <div class="hinhanh">
-                            <img class="anhmauhang" src="Ảnh/maytinh4.jpg" alt="">
-                        </div>
-                    </a>
-    
-                    <div class="thongtingiaban">
-                        <span class="giamgia">Giảm 3.000.000 Đ</span>
-                        <h4 class="ten">HP Laptop 15-ef2126wm</h4>
-                        <span class="caidat margin-top">
-                            (Tùy chọn 1 cấu hình)</span><br>
-                        <span class="giamoi margin-top">11.000.000 đ</span><span class="giacu margin-top">14.000.000
-                            đ</span> <br>
-                        <span class="sao margin-top"><img src="Ảnh/saodanhgia.png" alt=""></span><span
-                            class="danhgia margin-top">10 đánh giá</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!------------------------------------------------->
-        <div class="khuyenmailoai1">
-            <div class="tieude">
-                <div class="tieudebanhangloai1">APPLE MACBOOK</div>
-                <div><button class="btnloaimt">iMac-Mac Pro-Mini</button><button class="btnloaimt">Macbook
-                        Air</button><button class="btnloaimt">Macbook Pro</button><button class="btnloaimt">Tất cả</button>
-                </div>
-            </div>
-            <div class="danhsachkhuyenmailoai1">
-                <div class="thanhphan">
-                    <div class="hinhanh">
-                        <img class="anhmauhang" src="Ảnh/maytinh5.jpg" alt="">
-                    </div>
-    
-                    <div class="thongtingiaban">
-                        <span class="giamgia" style="opacity: 0;">Giam gia</span>
-                        <h4 class="ten">iMac 2021 24 inch (M1-7-Core GPU)/8GB/256GB</h4>
-                        <span class="caidat margin-top">
-                            (Tùy chọn 4 màu sắc)</span><br>
-                        <span class="giamoi margin-top">27.990.000 đ</span><span class="giacu margin-top">	</span> <br>
-                        <span class="sao margin-top"><img src="Ảnh/saodanhgia.png" alt=""></span><span
-                            class="danhgia margin-top">4 đánh giá</span>
-                    </div>
-                </div>
-                <div class="thanhphan">
-                    <div class="hinhanh">
-                        <img class="anhmauhang" src="Ảnh/maytinh6.jpg" alt="">
-                    </div>
-                    <div class="thongtingiaban">
-                        <span class="giamgia">Giảm 3.480.000 Đ</span>
-                        <h4 class="ten">Mac Mini 2020 / M1 / 16GB / 256GB - NEW</h4>
-                        <span class="caidat margin-top"></span><br>
-                        <span class="giamoi margin-top">20.500.000 đ</span><span class="giacu margin-top">23.980.000 đ</span> <br>
-                        <span class="sao margin-top"><img src="Ảnh/saodanhgia.png" alt=""></span><span
-                            class="danhgia margin-top">6 đánh giá</span>
-                    </div>
-                </div>
-                <div class="thanhphan">
-                    <div class="hinhanh">
-                        <img class="anhmauhang" src="Ảnh/maytinh7.jpg" alt="">
-                    </div>
-                    <div class="thongtingiaban">
-                        <span class="giamgia"style="opacity: 0;">Giam gia</span>
-                        <h4 class="ten">Macbook Pro 16 M1 Pro 10 Core - GPU 16 Core - New</h4>
-                        <span class="caidat margin-top">(Tùy chọn 4 màu sắc)</span><br>
-                        <span class="giamoi margin-top">45.990.000 đ</span><span class="giacu margin-top"></span> <br>
-                        <span class="sao margin-top"><img src="Ảnh/saodanhgia.png" alt=""></span><span
-                            class="danhgia margin-top">9 đánh giá</span>
-                    </div>
-                </div>
-                <div class="thanhphan">
-                    <div class="hinhanh">
-                        <img class="anhmauhang" src="Ảnh/maytinh8.jpg" alt="">
-                    </div>
-                    <div class="thongtingiaban">
-                        <span class="giamgia">Giảm 4.000.000 Đ</span>
-                        <h4 class="ten">Macbook Pro 13 2022 M2 / 24GB / 256GB - NEW</h4>
-                        <span class="caidat margin-top"></span><br>
-                        <span class="giamoi margin-top">59.900.000 đ</span><span class="giacu margin-top">63.900.000 đ</span> <br>
-                        <span class="sao margin-top"><img src="Ảnh/saodanhgia.png" alt=""></span><span
-                            class="danhgia margin-top">9 đánh giá</span>
-                    </div>
-                </div>
-                <div class="thanhphan">
-                    <div class="hinhanh">
-                        <img class="anhmauhang" src="Ảnh/maytinh5.jpg" alt="">
-                    </div>
-    
-                    <div class="thongtingiaban">
-                        <span class="giamgia">Giảm 2.500.000 Đ</span>
-                        <h4 class="ten">iMac 2021 24 inch (M1-7-Core GPU)/8GB/256GB</h4>
-                        <span class="caidat margin-top">(Tùy chọn 3 cấu hình)</span><br>
-                        <span class="giamoi margin-top">48.000.000 đ</span><span class="giacu margin-top">50.500.000 đ</span> <br>
-                        <span class="sao margin-top"><img src="Ảnh/saodanhgia.png" alt=""></span><span
-                            class="danhgia margin-top">7 đánh giá</span>
-                    </div>
-                </div>
-                <div class="thanhphan">
-                    <div class="hinhanh">
-                        <img class="anhmauhang" src="Ảnh/maytinh6.jpg" alt="">
-                    </div>
-                    <div class="thongtingiaban">
-                        <span class="giamgia">Giảm 1.900.000 Đ</span>
-                        <h4 class="ten">Mac Mini 2020 / M1 / 16GB / 256GB - NEW</h4>
-                        <span class="caidat margin-top">(Tùy chọn 3 màu sắc)</span><br>
-                        <span class="giamoi margin-top">53.000.000 đ</span><span class="giacu margin-top">54.900.000 đ</span> <br>
-                        <span class="sao margin-top"><img src="Ảnh/saodanhgia.png" alt=""></span><span
-                            class="danhgia margin-top">3 đánh giá</span>
-                    </div>
-                </div>
-                <div class="thanhphan">
-                    <div class="hinhanh">
-                        <img class="anhmauhang" src="Ảnh/maytinh7.jpg" alt="">
-                    </div>
-                    <div class="thongtingiaban">
-                        <span class="giamgia">Giảm 2.900.000 Đ</span>
-                        <h4 class="ten">Macbook Pro 16 M1 Pro 10 Core - GPU 16 Core - New</h4>
-                        <span class="caidat margin-top">(Tùy chọn 4 cấu hình)</span><br>
-                        <span class="giamoi margin-top">52.000.000 đ</span><span class="giacu margin-top">54.900.000 đ</span> <br>
-                        <span class="sao margin-top"><img src="Ảnh/saodanhgia.png" alt=""></span><span
-                            class="danhgia margin-top">2 đánh giá</span>
-                    </div>
-                </div>
-                <div class="thanhphan">
-                    <div class="hinhanh">
-                        <img class="anhmauhang" src="Ảnh/maytinh8.jpg" alt="">
-                    </div>
-                    <div class="thongtingiaban">
-                        <span class="giamgia"style="opacity: 0;"></span>
-                        <h4 class="ten">Macbook Pro 13 2022 M2 / 24GB / 256GB - NEW</h4>
-                        <span class="caidat margin-top"></span><br>
-                        <span class="giamoi margin-top">61.000.000 đ</span><span class="giacu margin-top"></span> <br>
-                        <span class="sao margin-top"><img src="Ảnh/saodanhgia.png" alt=""></span><span
-                            class="danhgia margin-top">3 đánh giá</span>
-                    </div>
-                </div>
-            </div>	
-        </div>
-        <div style="height: 1px;width: 1200px;margin: auto; background-color: #808080; margin-bottom: 40px;"></div>
-        <div class="cuoitrang">
-            <div class="item1 khochua">
-                <h2>HỆ THỐNG CỬA HÀNG</h2><br>
-                <ul>
-                    <h3>HÀ NỘI</h3>
-                    <li>294 Thái Hà, Trung Liệt, Đống Đa, Hà Nội</li><br>
-                </ul>
-                <ul>
-                    <h3>HỒ CHÍ MINH</h3>
-                    <li>284/7/2 Lý Thường Kiệt, Phường 14, Quận 10, TP. HCM</li><br>
-                    <li>94 Đ. Hoàng Diệu 2, Phường Linh Chiểu, Thủ Đức, TP. HCM</li><br>
-                </ul>
-                <ul>
-                    <h3>CẦN THƠ</h3>
-                    <li>131 Lý Tự Trọng, Q. Ninh Kiều, TP Cần Thơ</li>
-                </ul>
-            </div>
-            <div class="item2 khochua">
-                <h2>HỆ THỐNG LAPVIP</h2>
-                <ul>
-                    <li>Giới thiệu</li>
-                    <li>Liên hệ</li>
-                    <li>Thư mời hợp tác</li>
-                    <li>Tuyển dụng lapvip</li>
-                    <li>Mua giá sỉ</li>
-                    <li>Bán hàng cùng Lapvip</li>
-                    <li>Bán hàng doanh nghiệp</li>
-                </ul>
-            </div>
-            <div class="item2 khochua">
-                <h2>CHĂM SÓC KHÁCH HÀNG</h2><br>
-                <ul style="margin-top: 0px;">
-                    <li>Chính sách bảo hành</li>
-                    <li>Chính sách đổi trả</li>
-                    <li>Chính sách vận chuyển</li>
-                    <li>Chính sách thanh toán</li>
-                    <li>Hướng dẫn mua online</li>
-                    <li>Chính sách trả góp</li>
-                    <li>Chính sách bảo mật</li>
-                    <li>Câu hỏi thường gặp</li>
-                </ul>
-            </div>
-            <div class="item3 khochua">
-                <h2>KẾT NỐI VỚI CHÚNG TÔI</h2><br><br>
-                <div class="khoi1">
-                    <div class="khoiketnoi"><img src="https://lapvip.vn/html-viettech/images/facebook.png" alt="">
-                        <div> <span>Fanpage của Lapvip</span> <a href="https://web.facebook.com/profile.php?id=100042335855695">Facebook</a></div>
-                    </div>
-                    <div class="khoiketnoi"><img src="https://lapvip.vn/html-viettech/images/youtube.png" alt="">
-                        <div> <span>Youtube của Lapvip</span> <a href="">Youtube/LapVip</a></div>
-                    </div>
-                    <div class="khoiketnoi"><img src="https://lapvip.vn/html-viettech/images/zalo.png" alt="">
-                        <div style="margin-right: 60px;"> <span>Lapvip hotline Zalo</span><br> <a href="">0374337432</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="khoi1" style="padding-top: 50px;">
-                    Điện thoại di động <br>
-                    0374.33.74.32
-                </div>
-                <!-- <div class="khochua">
-                    <h2>PHƯƠNG THỨC THANH TOÁN:</h2>
-                    <div>
-    
-                    </div>
-                    <div>
-    
-                    </div>
-                </div> -->
-            </div>
-        </div>
-        <script src="TrangChu.js"></script>
-        <script>
-            function laygt(id1, id2, id3, id4) {
-                var ten = document.getElementById(id1).textContent;
-                var gia = document.getElementById(id2).textContent;
-                var anh = document.getElementById(id3).src;
-                var giacu = document.getElementById(id4).textContent;
-                
-                // Lưu thông tin sản phẩm vào localStorage
-                localStorage.setItem("TenSP", ten);
-                localStorage.setItem("Gia", gia);
-                localStorage.setItem("Anh", anh);
-                localStorage.setItem("GiaCu", giacu);
         
-                // Chuyển hướng đến trang mua sản phẩm
-                window.location.href = "muasp.html";
-            }
-        </script>
-    
+            <div class="content">
+                <h1>Chào mừng đến trang quản lý LapVip</h1>
+                <div class="stats-overview">
+                    <div class="stat-item">
+                        <h3>Sản phẩm</h3>
+                        <p id="total-products">0</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Nhân viên</h3>
+                        <p id="total-employees">0</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Đơn hàng</h3>
+                        <p id="total-orders">0</p>
+                    </div>
+                </div>
+                <div class="main-chart">
+                    <canvas id="revenue-chart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <script src="JS/QuanTri.js"></script>
     </body>
-</body>
 </html>
